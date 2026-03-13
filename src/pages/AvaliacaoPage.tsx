@@ -3,7 +3,7 @@ import { ProgressBar } from '@/components/ProgressBar';
 import { mockQuarterlyReview, mockProject } from '@/data/mockData';
 import { PILLAR_LABELS } from '@/types';
 import { formatQuarter } from '@/lib/helpers';
-import { TrendingUp, AlertTriangle, CheckCircle2, ArrowRight } from 'lucide-react';
+import { TrendingUp, AlertTriangle, CheckCircle2, ArrowRight, HelpCircle } from 'lucide-react';
 
 function ReviewSection({ icon: Icon, title, content, iconColor }: {
   icon: React.ElementType;
@@ -18,6 +18,15 @@ function ReviewSection({ icon: Icon, title, content, iconColor }: {
         <h3 className="font-display font-semibold text-sm text-foreground">{title}</h3>
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed">{content}</p>
+    </div>
+  );
+}
+
+function StrategicQuestion({ question, answer }: { question: string; answer: string }) {
+  return (
+    <div className="py-3 border-b border-border last:border-0">
+      <span className="text-xs font-medium text-foreground">{question}</span>
+      <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{answer}</p>
     </div>
   );
 }
@@ -70,6 +79,23 @@ export default function AvaliacaoPage() {
             iconColor="text-foreground"
           />
         </div>
+
+        {/* Strategic Questions */}
+        {review.strategicQuestions && (
+          <div className="bg-card rounded-lg border border-border p-6 mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <HelpCircle className="w-4 h-4 text-status-in-progress" />
+              <h2 className="font-display font-semibold text-sm text-foreground">
+                Perguntas Estratégicas
+              </h2>
+            </div>
+            <StrategicQuestion question="O projeto evoluiu artisticamente?" answer={review.strategicQuestions.artisticEvolution} />
+            <StrategicQuestion question="O público começou a responder?" answer={review.strategicQuestions.audienceResponse} />
+            <StrategicQuestion question="Existe demanda real?" answer={review.strategicQuestions.realDemand} />
+            <StrategicQuestion question="Onde está o gargalo?" answer={review.strategicQuestions.bottleneck} />
+            <StrategicQuestion question="A hipótese artística está sendo validada?" answer={review.strategicQuestions.hypothesisValidation} />
+          </div>
+        )}
 
         {/* New Goal */}
         <div className="bg-card rounded-lg border border-primary/20 p-6 mb-8">

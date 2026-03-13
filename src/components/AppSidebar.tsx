@@ -8,6 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Music2,
+  BarChart3,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
@@ -16,6 +17,7 @@ const navItems = [
   { label: 'Dashboard', path: '/', icon: LayoutDashboard },
   { label: 'Milestones', path: '/milestones', icon: ListChecks },
   { label: 'Roadmap', path: '/roadmap', icon: CalendarRange },
+  { label: 'Indicadores', path: '/indicadores', icon: BarChart3 },
   { label: 'Avaliação Trimestral', path: '/avaliacao', icon: ClipboardCheck },
   { label: 'Configurações', path: '/configuracoes', icon: Settings },
 ];

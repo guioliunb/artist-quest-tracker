@@ -8,6 +8,7 @@ import MilestonesPage from "./pages/MilestonesPage";
 import RoadmapPage from "./pages/RoadmapPage";
 import AvaliacaoPage from "./pages/AvaliacaoPage";
 import ConfiguracoesPage from "./pages/ConfiguracoesPage";
+import IndicadoresPage from "./pages/IndicadoresPage";
 import LoginPage from "./pages/LoginPage";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/" element={<Dashboard />} />
           <Route path="/milestones" element={<MilestonesPage />} />
           <Route path="/roadmap" element={<RoadmapPage />} />
+          <Route path="/indicadores" element={<IndicadoresPage />} />
           <Route path="/avaliacao" element={<AvaliacaoPage />} />
           <Route path="/configuracoes" element={<ConfiguracoesPage />} />
           <Route path="/login" element={<LoginPage />} />
