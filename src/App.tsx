@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ProjectProvider } from "@/contexts/ProjectContext";
 import LandingPage from "./pages/LandingPage";
+import Dashboard from "./pages/Dashboard";
 import MilestonesPage from "./pages/MilestonesPage";
 import RoadmapPage from "./pages/RoadmapPage";
 import AvaliacaoPage from "./pages/AvaliacaoPage";
