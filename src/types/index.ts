@@ -4,6 +4,10 @@ export type MilestoneStatus = 'nao_iniciado' | 'em_andamento' | 'concluido' | 'a
 
 export type Priority = 'baixa' | 'media' | 'alta' | 'critica';
 
+export type HypothesisStatus = 'nao_testada' | 'em_validacao' | 'validada';
+
+export type CareerPhase = 'diagnostico' | 'estrutura' | 'identidade' | 'publico' | 'tracao' | 'monetizacao';
+
 export interface User {
   id: string;
   name: string;
@@ -21,6 +25,30 @@ export interface Artist {
   createdAt: string;
 }
 
+export interface ProjectDNA {
+  artisticConcept: string;
+  artisticNarrative: string;
+  culturalUniverse: string;
+  references: string[];
+  artisticHypothesis: string;
+  hypothesisStatus: HypothesisStatus;
+}
+
+export interface ProjectPositioning {
+  mainGenre: string;
+  subGenre: string;
+  culturalTerritory: string;
+  valueProposition: string;
+}
+
+export interface ProjectAudience {
+  ageRange: string;
+  culturalScene: string;
+  predominantAesthetic: string;
+  behavior: string;
+  mainPlatforms: string[];
+}
+
 export interface Project {
   id: string;
   artistId: string;
@@ -31,6 +59,12 @@ export interface Project {
   stage: string;
   overallProgress: number;
   createdAt: string;
+  careerPhase: CareerPhase;
+  bigGoal?: string;
+  quarterGoal?: string;
+  dna?: ProjectDNA;
+  positioning?: ProjectPositioning;
+  audience?: ProjectAudience;
 }
 
 export interface Pillar {
@@ -40,6 +74,12 @@ export interface Pillar {
   progress: number;
   level: string;
   observations?: string;
+}
+
+export interface Subtask {
+  id: string;
+  title: string;
+  completed: boolean;
 }
 
 export interface Milestone {
@@ -59,6 +99,7 @@ export interface Milestone {
   priority: Priority;
   tags?: string[];
   order: number;
+  subtasks?: Subtask[];
 }
 
 export interface QuarterlyReview {
@@ -73,6 +114,15 @@ export interface QuarterlyReview {
   nextSteps: string;
   newGoal: string;
   pillarReviews: PillarReview[];
+  strategicQuestions?: StrategicQuestions;
+}
+
+export interface StrategicQuestions {
+  artisticEvolution: string;
+  audienceResponse: string;
+  realDemand: string;
+  bottleneck: string;
+  hypothesisValidation: string;
 }
 
 export interface PillarReview {
@@ -89,6 +139,37 @@ export interface Comment {
   userName: string;
   content: string;
   createdAt: string;
+}
+
+export interface DemandMetrics {
+  month: string;
+  shows: {
+    requested: number;
+    confirmed: number;
+    ticketsSold: number;
+    vipGuests: number;
+  };
+  streaming: {
+    monthlyListeners: number;
+    followers: number;
+    saves: number;
+    playlistAdds: number;
+    preSaves: number;
+  };
+  community: {
+    superFansActive: number;
+    closedGroup: number;
+    shares: number;
+    campaignParticipation: number;
+  };
+  monetization: {
+    streamingRoyalties: number;
+    publicPerformance: number;
+    publishing: number;
+    sync: number;
+    brands: number;
+    licensing: number;
+  };
 }
 
 export const PILLAR_LABELS: Record<PillarType, string> = {
@@ -113,3 +194,20 @@ export const PRIORITY_LABELS: Record<Priority, string> = {
   alta: 'Alta',
   critica: 'Crítica',
 };
+
+export const HYPOTHESIS_STATUS_LABELS: Record<HypothesisStatus, string> = {
+  nao_testada: 'Não Testada',
+  em_validacao: 'Em Validação',
+  validada: 'Validada',
+};
+
+export const CAREER_PHASE_LABELS: Record<CareerPhase, string> = {
+  diagnostico: 'Diagnóstico',
+  estrutura: 'Estrutura',
+  identidade: 'Identidade',
+  publico: 'Público',
+  tracao: 'Tração',
+  monetizacao: 'Monetização',
+};
+
+export const CAREER_PHASE_ORDER: CareerPhase[] = ['diagnostico', 'estrutura', 'identidade', 'publico', 'tracao', 'monetizacao'];
