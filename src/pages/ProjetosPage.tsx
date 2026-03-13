@@ -175,7 +175,7 @@ export default function ProjetosPage() {
   const handleSelect = (id: string) => {
     setActiveProjectId(id);
     toast.success('Projeto ativo atualizado');
-    navigate('/');
+    navigate('/dashboard');
   };
 
   return (

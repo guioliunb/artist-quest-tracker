@@ -15,7 +15,7 @@ import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
 const navItems = [
-  { label: 'Dashboard', path: '/', icon: LayoutDashboard },
+  { label: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
   { label: 'Projetos', path: '/projetos', icon: FolderKanban },
   { label: 'Milestones', path: '/milestones', icon: ListChecks },
   { label: 'Roadmap', path: '/roadmap', icon: CalendarRange },
