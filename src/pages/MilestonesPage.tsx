@@ -4,14 +4,36 @@ import { ProgressBar } from '@/components/ProgressBar';
 import { StatusBadge } from '@/components/StatusBadge';
 import { PillarTag } from '@/components/PillarTag';
 import { mockMilestones } from '@/data/mockData';
-import { PillarType, MilestoneStatus, PILLAR_LABELS, PILLAR_ORDER, STATUS_LABELS, Milestone } from '@/types';
+import { PillarType, MilestoneStatus, PILLAR_LABELS, PILLAR_ORDER, Milestone } from '@/types';
 import { formatDate } from '@/lib/helpers';
 import { cn } from '@/lib/utils';
-import { LayoutList, Columns3, Search, Filter } from 'lucide-react';
+import { LayoutList, Columns3, Search, Filter, CheckCircle2, Circle } from 'lucide-react';
 
 type ViewMode = 'list' | 'kanban';
 
+function SubtaskList({ subtasks }: { subtasks: NonNullable<Milestone['subtasks']> }) {
+  return (
+    <div className="mt-2 space-y-1">
+      {subtasks.map(st => (
+        <div key={st.id} className="flex items-center gap-2">
+          {st.completed
+            ? <CheckCircle2 className="w-3 h-3 text-status-completed shrink-0" />
+            : <Circle className="w-3 h-3 text-muted-foreground shrink-0" />
+          }
+          <span className={cn('text-xs', st.completed ? 'text-muted-foreground line-through' : 'text-foreground')}>
+            {st.title}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function MilestoneCard({ milestone }: { milestone: Milestone }) {
+  const subtaskProgress = milestone.subtasks && milestone.subtasks.length > 0
+    ? Math.round((milestone.subtasks.filter(s => s.completed).length / milestone.subtasks.length) * 100)
+    : milestone.status === 'concluido' ? 100 : 0;
+
   return (
     <div className="bg-card rounded-lg border border-border p-4 hover:border-muted-foreground/30 transition-colors">
       <div className="flex items-center gap-2 mb-2">
@@ -21,11 +43,14 @@ function MilestoneCard({ milestone }: { milestone: Milestone }) {
       <h3 className="font-display font-semibold text-sm text-foreground mb-2">{milestone.title}</h3>
       <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{milestone.description}</p>
       <ProgressBar
-        value={milestone.progress}
+        value={subtaskProgress}
         size="sm"
         variant={milestone.status === 'concluido' ? 'completed' : milestone.status === 'atrasado' ? 'delayed' : 'in-progress'}
         showLabel
       />
+      {milestone.subtasks && milestone.subtasks.length > 0 && (
+        <SubtaskList subtasks={milestone.subtasks} />
+      )}
       <div className="flex items-center justify-between mt-3 text-[11px] text-muted-foreground">
         {milestone.deadline && <span>Prazo: {formatDate(milestone.deadline)}</span>}
         {milestone.responsible && <span>{milestone.responsible}</span>}
