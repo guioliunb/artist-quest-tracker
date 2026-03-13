@@ -9,7 +9,7 @@ export default function LoginPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate('/');
+    navigate('/dashboard');
   };
 
   return (
