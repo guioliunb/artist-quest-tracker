@@ -24,7 +24,8 @@ const App = () => (
       <BrowserRouter>
         <ProjectProvider>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/projetos" element={<ProjetosPage />} />
             <Route path="/milestones" element={<MilestonesPage />} />
             <Route path="/roadmap" element={<RoadmapPage />} />
