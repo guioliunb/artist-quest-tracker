@@ -81,7 +81,7 @@ function NewProjectDialog({ open, onOpenChange }: { open: boolean; onOpenChange:
     toast.success('Projeto criado com sucesso!');
     onOpenChange(false);
     setStep(1);
-    setForm({ projectName: '', artistName: '', genre: '', stage: 'Diagnóstico', careerPhase: 'diagnostico', currentQuarter: 1, currentYear: new Date().getFullYear(), bigGoal: '', quarterGoal: '' });
+    setForm({ projectName: '', artistName: '', genre: '', stage: 'Diagnóstico', careerPhase: 'definicao_mda', currentQuarter: 1, currentYear: new Date().getFullYear(), bigGoal: '', quarterGoal: '' });
     navigate('/configuracoes');
   };
 

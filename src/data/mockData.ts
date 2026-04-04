@@ -25,7 +25,7 @@ export const mockProject: Project = {
   stage: 'Definição de Conceito',
   overallProgress: 34,
   createdAt: '2025-01-15',
-  careerPhase: 'identidade',
+  careerPhase: 'experimentacao',
   bigGoal: 'Consolidar identidade artística e validar conceito com público real em 12 meses.',
   quarterGoal: 'Finalizar conceito artístico, definir público e iniciar narrativa pública.',
   dna: {
