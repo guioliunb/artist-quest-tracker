@@ -6,7 +6,7 @@ export type Priority = 'baixa' | 'media' | 'alta' | 'critica';
 
 export type HypothesisStatus = 'nao_testada' | 'em_validacao' | 'validada';
 
-export type CareerPhase = 'diagnostico' | 'estrutura' | 'identidade' | 'publico' | 'tracao' | 'monetizacao';
+export type CareerPhase = 'definicao_mda' | 'experimentacao' | 'validacao_sva' | 'organizacao' | 'execucao' | 'consolidacao' | 'tracao' | 'escala';
 
 export interface User {
   id: string;
