@@ -6,7 +6,7 @@ export type Priority = 'baixa' | 'media' | 'alta' | 'critica';
 
 export type HypothesisStatus = 'nao_testada' | 'em_validacao' | 'validada';
 
-export type CareerPhase = 'diagnostico' | 'estrutura' | 'identidade' | 'publico' | 'tracao' | 'monetizacao';
+export type CareerPhase = 'definicao_mda' | 'experimentacao' | 'validacao_sva' | 'organizacao' | 'execucao' | 'consolidacao' | 'tracao' | 'escala';
 
 export interface User {
   id: string;
@@ -202,12 +202,14 @@ export const HYPOTHESIS_STATUS_LABELS: Record<HypothesisStatus, string> = {
 };
 
 export const CAREER_PHASE_LABELS: Record<CareerPhase, string> = {
-  diagnostico: 'Diagnóstico',
-  estrutura: 'Estrutura',
-  identidade: 'Identidade',
-  publico: 'Público',
+  definicao_mda: 'Definição (MDA)',
+  experimentacao: 'Experimentação',
+  validacao_sva: 'Validação (SVA)',
+  organizacao: 'Organização',
+  execucao: 'Execução',
+  consolidacao: 'Consolidação',
   tracao: 'Tração',
-  monetizacao: 'Monetização',
+  escala: 'Escala',
 };
 
-export const CAREER_PHASE_ORDER: CareerPhase[] = ['diagnostico', 'estrutura', 'identidade', 'publico', 'tracao', 'monetizacao'];
+export const CAREER_PHASE_ORDER: CareerPhase[] = ['definicao_mda', 'experimentacao', 'validacao_sva', 'organizacao', 'execucao', 'consolidacao', 'tracao', 'escala'];

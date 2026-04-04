@@ -76,7 +76,7 @@ function CareerPhaseIndicator() {
   return (
     <div className="bg-card rounded-lg border border-border p-5">
       <h2 className="font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
-        Fase da Carreira
+        Evolução do Projeto
       </h2>
       <div className="flex items-center gap-1 mb-4">
         {CAREER_PHASE_ORDER.map((p, i) => (
@@ -276,7 +276,7 @@ export default function Dashboard() {
         {/* Strategic Blocks: DNA, Positioning, Audience */}
         <section className="mb-10">
           <h2 className="font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
-            Estratégia
+            Definição Artística (MDA)
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <DNABlock />
@@ -306,7 +306,7 @@ export default function Dashboard() {
           <section className="bg-card rounded-lg border border-border p-5">
             <div className="flex items-center gap-2 mb-4">
               <CheckCircle2 className="w-4 h-4 text-muted-foreground" />
-              <h2 className="font-display font-semibold text-sm text-foreground">Próximos</h2>
+              <h2 className="font-display font-semibold text-sm text-foreground">Próximos Passos</h2>
               <span className="text-xs text-muted-foreground ml-auto">{upcoming.length}</span>
             </div>
             <div>

@@ -134,7 +134,7 @@ export default function ConfiguracoesPage() {
           />
           <EditableField label="Estágio" value={activeProject.stage} onChange={v => updateProject({ stage: v })} />
           <SelectField
-            label="Fase da Carreira"
+            label="Evolução do Projeto"
             value={activeProject.careerPhase}
             options={careerPhaseOptions}
             onChange={v => updateProject({ careerPhase: v as CareerPhase })}
@@ -196,7 +196,7 @@ export default function ConfiguracoesPage() {
           )}
         </SettingSection>
 
-        <SettingSection title="Estratégia">
+        <SettingSection title="Definição Artística (MDA)">
           {activeProject.dna && (
             <>
               <EditableField
