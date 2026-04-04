@@ -276,7 +276,7 @@ export default function Dashboard() {
         {/* Strategic Blocks: DNA, Positioning, Audience */}
         <section className="mb-10">
           <h2 className="font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
-            Estratégia
+            Definição Artística (MDA)
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <DNABlock />
