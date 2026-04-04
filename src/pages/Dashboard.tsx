@@ -76,7 +76,7 @@ function CareerPhaseIndicator() {
   return (
     <div className="bg-card rounded-lg border border-border p-5">
       <h2 className="font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
-        Fase da Carreira
+        Evolução do Projeto
       </h2>
       <div className="flex items-center gap-1 mb-4">
         {CAREER_PHASE_ORDER.map((p, i) => (
