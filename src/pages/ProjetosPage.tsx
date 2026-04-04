@@ -21,7 +21,7 @@ function NewProjectDialog({ open, onOpenChange }: { open: boolean; onOpenChange:
     artistName: '',
     genre: '',
     stage: 'Diagnóstico',
-    careerPhase: 'diagnostico' as CareerPhase,
+    careerPhase: 'definicao_mda' as CareerPhase,
     currentQuarter: 1,
     currentYear: new Date().getFullYear(),
     bigGoal: '',
