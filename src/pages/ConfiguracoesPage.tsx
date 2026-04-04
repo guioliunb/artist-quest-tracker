@@ -196,7 +196,7 @@ export default function ConfiguracoesPage() {
           )}
         </SettingSection>
 
-        <SettingSection title="Estratégia">
+        <SettingSection title="Definição Artística (MDA)">
           {activeProject.dna && (
             <>
               <EditableField

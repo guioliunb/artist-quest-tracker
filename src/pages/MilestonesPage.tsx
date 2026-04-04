@@ -34,8 +34,15 @@ function MilestoneCard({ milestone }: { milestone: Milestone }) {
     ? Math.round((milestone.subtasks.filter(s => s.completed).length / milestone.subtasks.length) * 100)
     : milestone.status === 'concluido' ? 100 : 0;
 
+  const pillarBorderColors: Record<PillarType, string> = {
+    administrativo: 'border-l-muted-foreground/50',
+    artistico: 'border-l-blue-500/60',
+    marketing: 'border-l-orange-500/60',
+    comercial: 'border-l-emerald-500/60',
+  };
+
   return (
-    <div className="bg-card rounded-lg border border-border p-4 hover:border-muted-foreground/30 transition-colors">
+    <div className={cn('bg-card rounded-lg border border-border border-l-[3px] p-4 hover:border-muted-foreground/30 transition-colors', pillarBorderColors[milestone.pillarType])}>
       <div className="flex items-center gap-2 mb-2">
         <PillarTag pillar={milestone.pillarType} />
         <StatusBadge status={milestone.status} />
