@@ -306,7 +306,7 @@ export default function Dashboard() {
           <section className="bg-card rounded-lg border border-border p-5">
             <div className="flex items-center gap-2 mb-4">
               <CheckCircle2 className="w-4 h-4 text-muted-foreground" />
-              <h2 className="font-display font-semibold text-sm text-foreground">Próximos</h2>
+              <h2 className="font-display font-semibold text-sm text-foreground">Próximos Passos</h2>
               <span className="text-xs text-muted-foreground ml-auto">{upcoming.length}</span>
             </div>
             <div>
