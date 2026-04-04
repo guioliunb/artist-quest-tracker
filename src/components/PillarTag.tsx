@@ -7,10 +7,10 @@ interface PillarTagProps {
 }
 
 const pillarBorderColors: Record<PillarType, string> = {
-  administrativo: 'border-muted-foreground/30',
-  artistico: 'border-status-in-progress/30',
-  marketing: 'border-status-delayed/30',
-  comercial: 'border-status-completed/30',
+  administrativo: 'border-muted-foreground/40 text-muted-foreground',
+  artistico: 'border-blue-500/40 text-blue-400',
+  marketing: 'border-orange-500/40 text-orange-400',
+  comercial: 'border-emerald-500/40 text-emerald-400',
 };
 
 export function PillarTag({ pillar, className }: PillarTagProps) {
