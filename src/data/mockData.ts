@@ -1,9 +1,9 @@
-import { Artist, Milestone, Pillar, Project, QuarterlyReview, Comment, User, DemandMetrics } from '@/types';
+import { Artist, BudgetLine, CalendarEvent, CareerPhaseHistoryEntry, FinanceEntry, IndustryContact, Milestone, Pillar, Project, QuarterlyReview, Comment, User, DemandMetrics, SpotifyProfile } from '@/types';
 
 export const mockUser: User = {
   id: 'u1',
-  name: 'Lucas Ferreira',
-  email: 'lucas@consultoria.com',
+  name: 'Rulio Dantas',
+  email: 'rulio@consultoria.com',
   role: 'consultor',
 };
 
@@ -12,6 +12,7 @@ export const mockArtist: Artist = {
   name: 'RAY EL VOX',
   genre: 'Pop Alternativo / Eletrônico',
   bio: 'Artista emergente com proposta autoral que une influências da música eletrônica com poesia contemporânea.',
+  whatsapp: '+55 11 91234-5678',
   createdAt: '2025-01-15',
 };
 
@@ -26,6 +27,7 @@ export const mockProject: Project = {
   overallProgress: 34,
   createdAt: '2025-01-15',
   careerPhase: 'experimentacao',
+  projectType: 'album',
   bigGoal: 'Consolidar identidade artística e validar conceito com público real em 12 meses.',
   quarterGoal: 'Finalizar conceito artístico, definir público e iniciar narrativa pública.',
   dna: {
@@ -226,31 +228,18 @@ export const mockQuarterlyReview: QuarterlyReview = {
   projectId: 'p1',
   quarter: 1,
   year: 2025,
-  summary: 'Primeiro trimestre focado em diagnóstico e definição de conceito. Base estratégica sólida estabelecida.',
-  evolved: 'Diagnóstico concluído com clareza. Pesquisa de nicho revelou posicionamento único. Meta de carreira definida com consenso.',
-  blocked: 'Definição do conceito artístico demorou mais que o previsto. Artista passou por fase de indecisão criativa.',
-  validated: 'Método sequencial (Administrativo → Artístico) provou eficácia. Artista reconhece valor do planejamento prévio.',
-  nextSteps: 'Finalizar conceito artístico. Iniciar definição de público. Começar narrativa pública. Estruturar finanças.',
-  newGoal: 'Consolidar identidade artística completa e iniciar presença pública estratégica.',
   pillarReviews: [
     { pillarType: 'administrativo', summary: 'Base sólida. Falta estrutura financeira.', progress: 65, previousProgress: 0 },
     { pillarType: 'artistico', summary: 'Em progresso. Conceito precisa de finalização.', progress: 40, previousProgress: 0 },
     { pillarType: 'marketing', summary: 'Início tímido. Narrativa em construção.', progress: 15, previousProgress: 0 },
     { pillarType: 'comercial', summary: 'Ainda em planejamento. Dependente dos demais pilares.', progress: 5, previousProgress: 0 },
   ],
-  strategicQuestions: {
-    artisticEvolution: 'Sim. O conceito artístico ganhou contorno mais claro após a pesquisa profunda. Falta finalizar o manifesto.',
-    audienceResponse: 'Ainda cedo para avaliar — público não foi exposto ao projeto. Validação prevista para Q2.',
-    realDemand: 'Não há dados de demanda real ainda. Projeto em fase pré-lançamento.',
-    bottleneck: 'Indecisão criativa do artista na definição final do conceito. Resolvido parcialmente com sessões de direção.',
-    hypothesisValidation: 'Hipótese artística em validação. Primeiros sinais positivos nas entrevistas de nicho.',
-  },
 };
 
 export const mockComments: Comment[] = [
-  { id: 'c1', milestoneId: 'm6', userId: 'u1', userName: 'Lucas Ferreira', content: 'O conceito precisa ser mais afiado. Sugiro revisitar as referências do moodboard e focar em 3 palavras-chave que definam a essência.', createdAt: '2025-03-05T14:30:00' },
-  { id: 'c2', milestoneId: 'm6', userId: 'u1', userName: 'Lucas Ferreira', content: 'Artista trouxe novas referências visuais excelentes. Direção sonora ficando mais clara.', createdAt: '2025-03-10T10:15:00' },
-  { id: 'c3', milestoneId: 'm3', userId: 'u1', userName: 'Lucas Ferreira', content: 'Cronograma precisa ser revisado para acomodar o atraso na definição do conceito artístico.', createdAt: '2025-03-08T16:00:00' },
+  { id: 'c1', milestoneId: 'm6', userId: 'u1', userName: 'Rulio Dantas', content: 'O conceito precisa ser mais afiado. Sugiro revisitar as referências do moodboard e focar em 3 palavras-chave que definam a essência.', createdAt: '2025-03-05T14:30:00' },
+  { id: 'c2', milestoneId: 'm6', userId: 'u1', userName: 'Rulio Dantas', content: 'Artista trouxe novas referências visuais excelentes. Direção sonora ficando mais clara.', createdAt: '2025-03-10T10:15:00' },
+  { id: 'c3', milestoneId: 'm3', userId: 'u1', userName: 'Rulio Dantas', content: 'Cronograma precisa ser revisado para acomodar o atraso na definição do conceito artístico.', createdAt: '2025-03-08T16:00:00' },
 ];
 
 export const mockDemandMetrics: DemandMetrics[] = [
@@ -275,6 +264,78 @@ export const mockDemandMetrics: DemandMetrics[] = [
     community: { superFansActive: 8, closedGroup: 12, shares: 18, campaignParticipation: 4 },
     monetization: { streamingRoyalties: 12.50, publicPerformance: 0, publishing: 0, sync: 0, brands: 0, licensing: 0 },
   },
+];
+
+export const mockSpotifyProfile: SpotifyProfile = {
+  artistId: 'a1',
+  profileUrl: 'https://open.spotify.com/artist/rayelvox',
+  verified: false,
+  monthlyListeners: 120,
+  followers: 85,
+  topTracks: [
+    { id: 'st1', title: 'Frequência Humana', streams: 18500, releaseDate: '2025-02-14' },
+    { id: 'st2', title: 'Cidade Digital', streams: 9200, releaseDate: '2024-11-01' },
+    { id: 'st3', title: 'Solidão Conectada', streams: 4100, releaseDate: '2024-08-20' },
+  ],
+  playlists: [
+    { id: 'spl1', playlistName: 'Novidade Indie BR', curator: 'Editorial Spotify', followers: 84000 },
+    { id: 'spl2', playlistName: 'Eletrônica Poética', curator: 'Nicho', followers: 6200 },
+  ],
+};
+
+export const mockIndustryContacts: IndustryContact[] = [
+  {
+    id: 'ic1', projectId: 'p1', name: 'Marina Costa', category: 'produtor',
+    company: 'Estúdio Voz Digital', role: 'Produtora musical',
+    whatsapp: '+55 11 98765-4321', email: 'marina@vozdigital.com.br',
+    notes: 'Produzindo as sessões de estúdio do repertório inicial.',
+    lastContactDate: '2025-03-05',
+  },
+  {
+    id: 'ic2', projectId: 'p1', name: 'Diego Almeida', category: 'booker',
+    company: 'Agência ON Shows', role: 'Booker',
+    email: 'diego@onshows.com.br',
+    notes: 'Em prospecção — enviado press kit para avaliação de datas.',
+    lastContactDate: '2025-02-20',
+  },
+  {
+    id: 'ic3', projectId: 'p1', name: 'Fernanda Reis', category: 'imprensa',
+    company: 'Blog Synth BR', role: 'Editora de música eletrônica',
+    whatsapp: '+55 21 99887-6655',
+    notes: 'Publicou uma resenha do primeiro single.',
+    lastContactDate: '2025-03-10',
+  },
+];
+
+export const mockCareerPhaseHistory: CareerPhaseHistoryEntry[] = [
+  { id: 'ch1', projectId: 'p1', phase: 'definicao_mda', startedAt: '2025-01-15', note: 'Diagnóstico estratégico iniciado.' },
+  { id: 'ch2', projectId: 'p1', phase: 'experimentacao', startedAt: '2025-02-01', note: 'Conceito artístico e pesquisa de nicho concluídos.' },
+];
+
+export const mockCalendarEvents: CalendarEvent[] = [
+  { id: 'ce1', projectId: 'p1', type: 'reuniao', title: 'Alinhamento estratégico trimestral', date: '2025-03-10', notes: 'Revisão de andamento dos pilares Administrativo e Artístico.' },
+  { id: 'ce2', projectId: 'p1', type: 'show', title: 'Show de validação — casa pequena', date: '2025-04-20', notes: 'Primeiro teste de recepção do público ao repertório.' },
+  { id: 'ce3', projectId: 'p1', type: 'lancamento', title: 'Lançamento do primeiro single', date: '2025-05-15' },
+  { id: 'ce4', projectId: 'p1', type: 'avaliacao_trimestral', title: 'Avaliação do Q1 2025', date: '2025-03-31' },
+];
+
+export const mockBudgetLines: BudgetLine[] = [
+  { id: 'bl1', projectId: 'p1', category: 'producao', plannedAmount: 8000 },
+  { id: 'bl2', projectId: 'p1', category: 'marketing', plannedAmount: 4000 },
+  { id: 'bl3', projectId: 'p1', category: 'shows', plannedAmount: 2000 },
+  { id: 'bl4', projectId: 'p1', category: 'equipe', plannedAmount: 3000 },
+  { id: 'bl5', projectId: 'p1', category: 'distribuicao', plannedAmount: 500 },
+  { id: 'bl6', projectId: 'p1', category: 'juridico', plannedAmount: 1500 },
+  { id: 'bl7', projectId: 'p1', category: 'outros', plannedAmount: 1000 },
+];
+
+export const mockFinanceEntries: FinanceEntry[] = [
+  { id: 'fe1', projectId: 'p1', type: 'despesa', category: 'producao', description: 'Estúdio de gravação — sessões iniciais', amount: 3200, dueDate: '2025-02-10', paidDate: '2025-02-10', status: 'pago' },
+  { id: 'fe2', projectId: 'p1', type: 'despesa', category: 'juridico', description: 'Registro de obra e contratos', amount: 1200, dueDate: '2025-02-20', paidDate: '2025-02-18', status: 'pago' },
+  { id: 'fe3', projectId: 'p1', type: 'despesa', category: 'marketing', description: 'Identidade visual e moodboard', amount: 1800, dueDate: '2025-03-15', status: 'previsto' },
+  { id: 'fe4', projectId: 'p1', type: 'despesa', category: 'equipe', description: 'Consultoria estratégica — Q1', amount: 2500, dueDate: '2025-03-31', status: 'atrasado' },
+  { id: 'fe5', projectId: 'p1', type: 'receita', category: 'shows', description: 'Cachê — show de validação', amount: 800, dueDate: '2025-04-20', paidDate: '2025-04-22', status: 'recebido' },
+  { id: 'fe6', projectId: 'p1', type: 'despesa', category: 'distribuicao', description: 'Distribuição digital — taxa anual', amount: 300, dueDate: '2025-05-01', status: 'previsto' },
 ];
 
 // Helper: calculate pillar progress from milestones

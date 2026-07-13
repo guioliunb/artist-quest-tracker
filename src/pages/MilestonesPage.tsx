@@ -3,11 +3,15 @@ import { AppLayout } from '@/components/AppLayout';
 import { ProgressBar } from '@/components/ProgressBar';
 import { StatusBadge } from '@/components/StatusBadge';
 import { PillarTag } from '@/components/PillarTag';
-import { mockMilestones } from '@/data/mockData';
+import { useProject } from '@/contexts/ProjectContext';
+import { EmptyState } from '@/components/EmptyState';
+import { Button } from '@/components/ui/button';
+import { FinanceEntryDialog } from '@/components/finance/FinanceEntryDialog';
+import { NewMilestoneDialog } from '@/components/milestones/NewMilestoneDialog';
 import { PillarType, MilestoneStatus, PILLAR_LABELS, PILLAR_ORDER, Milestone } from '@/types';
 import { formatDate } from '@/lib/helpers';
 import { cn } from '@/lib/utils';
-import { LayoutList, Columns3, Search, Filter, CheckCircle2, Circle } from 'lucide-react';
+import { LayoutList, Columns3, Search, Filter, CheckCircle2, Circle, Receipt, Plus } from 'lucide-react';
 
 type ViewMode = 'list' | 'kanban';
 
@@ -30,6 +34,8 @@ function SubtaskList({ subtasks }: { subtasks: NonNullable<Milestone['subtasks']
 }
 
 function MilestoneCard({ milestone }: { milestone: Milestone }) {
+  const { activeProject } = useProject();
+  const [financeDialogOpen, setFinanceDialogOpen] = useState(false);
   const subtaskProgress = milestone.subtasks && milestone.subtasks.length > 0
     ? Math.round((milestone.subtasks.filter(s => s.completed).length / milestone.subtasks.length) * 100)
     : milestone.status === 'concluido' ? 100 : 0;
@@ -43,11 +49,20 @@ function MilestoneCard({ milestone }: { milestone: Milestone }) {
 
   return (
     <div className={cn('bg-card rounded-lg border border-border border-l-[3px] p-4 hover:border-muted-foreground/30 transition-colors', pillarBorderColors[milestone.pillarType])}>
-      <div className="flex items-center gap-2 mb-2">
-        <PillarTag pillar={milestone.pillarType} />
-        <StatusBadge status={milestone.status} />
+      <div className="flex items-center justify-between gap-2 mb-2">
+        <div className="flex items-center gap-2">
+          <PillarTag pillar={milestone.pillarType} />
+          <StatusBadge status={milestone.status} />
+        </div>
+        <button
+          onClick={() => setFinanceDialogOpen(true)}
+          title="Criar despesa a partir deste marco"
+          className="text-muted-foreground hover:text-primary transition-colors shrink-0"
+        >
+          <Receipt className="w-3.5 h-3.5" />
+        </button>
       </div>
-      <h3 className="font-display font-semibold text-sm text-foreground mb-2">{milestone.title}</h3>
+      <h3 className="link-editorial inline-block font-display font-semibold text-sm text-foreground mb-2">{milestone.title}</h3>
       <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{milestone.description}</p>
       <ProgressBar
         value={subtaskProgress}
@@ -62,6 +77,19 @@ function MilestoneCard({ milestone }: { milestone: Milestone }) {
         {milestone.deadline && <span>Prazo: {formatDate(milestone.deadline)}</span>}
         {milestone.responsible && <span>{milestone.responsible}</span>}
       </div>
+
+      <FinanceEntryDialog
+        open={financeDialogOpen}
+        onOpenChange={setFinanceDialogOpen}
+        projectId={activeProject.id}
+        defaults={{
+          type: 'despesa',
+          description: milestone.title,
+          dueDate: milestone.deadline,
+          category: 'producao',
+          sourceMilestoneId: milestone.id,
+        }}
+      />
     </div>
   );
 }
@@ -88,11 +116,15 @@ function KanbanColumn({ status, milestones }: { status: MilestoneStatus; milesto
 }
 
 export default function MilestonesPage() {
+  const { activeProject, milestones } = useProject();
   const [viewMode, setViewMode] = useState<ViewMode>('list');
   const [filterPillar, setFilterPillar] = useState<PillarType | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [newMilestoneOpen, setNewMilestoneOpen] = useState(false);
 
-  const filtered = mockMilestones.filter(m => {
+  const projectMilestones = milestones.filter(m => m.projectId === activeProject.id);
+
+  const filtered = projectMilestones.filter(m => {
     if (filterPillar !== 'all' && m.pillarType !== filterPillar) return false;
     if (searchQuery && !m.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;
     return true;
@@ -103,9 +135,12 @@ export default function MilestonesPage() {
   return (
     <AppLayout>
       <div className="p-6 lg:p-10 max-w-6xl">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 pb-4 border-b-2 border-foreground">
           <h1 className="font-display font-bold text-2xl text-foreground">Milestones</h1>
           <div className="flex items-center gap-2">
+            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => setNewMilestoneOpen(true)}>
+              <Plus className="w-4 h-4 mr-1" /> Novo Marco
+            </Button>
             <button
               onClick={() => setViewMode('list')}
               className={cn(
@@ -169,7 +204,12 @@ export default function MilestonesPage() {
           <div className="space-y-3">
             {filtered.map(m => <MilestoneCard key={m.id} milestone={m} />)}
             {filtered.length === 0 && (
-              <p className="text-sm text-muted-foreground text-center py-12">Nenhum milestone encontrado.</p>
+              <EmptyState
+                illustration="milestones"
+                title="Nenhum marco por aqui"
+                description="Ajuste os filtros de pilar ou busca, ou crie o primeiro marco deste projeto."
+                action={{ label: 'Novo Marco', onClick: () => setNewMilestoneOpen(true) }}
+              />
             )}
           </div>
         ) : (
@@ -184,6 +224,8 @@ export default function MilestonesPage() {
           </div>
         )}
       </div>
+
+      <NewMilestoneDialog open={newMilestoneOpen} onOpenChange={setNewMilestoneOpen} projectId={activeProject.id} />
     </AppLayout>
   );
 }

@@ -72,3 +72,19 @@ export function formatCurrency(value: number): string {
 export function formatNumber(value: number): string {
   return value.toLocaleString('pt-BR');
 }
+
+export function slugify(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+export function buildWhatsAppLink(phone: string, message?: string): string {
+  const digits = phone.replace(/\D/g, '');
+  const query = message ? `?text=${encodeURIComponent(message)}` : '';
+  return `https://wa.me/${digits}${query}`;
+}

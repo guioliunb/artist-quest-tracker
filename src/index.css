@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,56 +6,107 @@
 
 @layer base {
   :root {
-    /* Milestone Tracker — Studio Dark Theme */
-    --background: 240 7% 7%;        /* #111113 Off-Black */
-    --foreground: 0 0% 94%;          /* #F0F0F0 Signal White */
+    /* Milestone Tracker — Editorial Vinho (Light) */
+    --background: 42 39% 94%;        /* #F5F1E8 */
+    --foreground: 60 8% 9%;          /* #1A1A16 */
 
-    --card: 240 5% 10.5%;            /* #1A1A1C Dark Grey */
-    --card-foreground: 0 0% 94%;
+    --card: 42 50% 96%;              /* #FAF7F0 */
+    --card-foreground: 60 8% 9%;
 
-    --popover: 240 5% 10.5%;
-    --popover-foreground: 0 0% 94%;
+    --popover: 42 50% 96%;
+    --popover-foreground: 60 8% 9%;
 
-    --primary: 153 100% 60%;         /* #33FF99 Validation Green */
-    --primary-foreground: 240 7% 7%;
+    --primary: 350 55% 31%;          /* #7A2331 Vinho */
+    --primary-foreground: 42 39% 94%;
 
-    --secondary: 240 5% 14%;
-    --secondary-foreground: 0 0% 94%;
+    --secondary: 42 38% 88%;
+    --secondary-foreground: 60 8% 9%;
 
-    --muted: 240 5% 14%;
-    --muted-foreground: 240 4% 41%;  /* #65656D Structure Grey */
+    --muted: 42 38% 88%;             /* #ECE5D5 */
+    --muted-foreground: 53 4% 40%;   /* #6B6A63 */
 
-    --accent: 240 5% 17%;
-    --accent-foreground: 0 0% 94%;
+    /* accent stays a neutral warm surface (chips, hover, toggles) — the vinho
+       brand color lives in --primary alone, applied deliberately (CTAs, active
+       nav ruler, badges), not painted across every neutral highlight surface */
+    --accent: 42 33% 91%;
+    --accent-foreground: 60 8% 9%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 94%;
+    --destructive: 5 60% 41%;
+    --destructive-foreground: 42 39% 94%;
 
-    --border: 240 4% 18%;
-    --input: 240 4% 18%;
-    --ring: 153 100% 60%;
+    --border: 43 33% 83%;            /* #E1D9C4 */
+    --input: 43 33% 83%;
+    --ring: 350 55% 31%;
 
     --radius: 0.5rem;
 
-    /* Semantic status colors */
-    --status-completed: 153 100% 60%;     /* #33FF99 */
-    --status-in-progress: 204 100% 50%;   /* #00A3FF */
-    --status-delayed: 40 100% 50%;        /* #FFB800 */
-    --status-not-started: 240 4% 41%;     /* #65656D */
+    /* Semantic status colors — distinct from the brand accent */
+    --status-completed: 135 26% 33%;     /* #3F6B4A verde-musgo */
+    --status-in-progress: 38 60% 45%;    /* #B8862E âmbar */
+    --status-delayed: 5 60% 41%;         /* #A8342A vermelho-alerta */
+    --status-not-started: 53 4% 40%;
 
     /* Sidebar */
-    --sidebar-background: 240 7% 6%;
-    --sidebar-foreground: 0 0% 94%;
-    --sidebar-primary: 153 100% 60%;
-    --sidebar-primary-foreground: 240 7% 7%;
-    --sidebar-accent: 240 5% 12%;
-    --sidebar-accent-foreground: 0 0% 94%;
-    --sidebar-border: 240 4% 14%;
-    --sidebar-ring: 153 100% 60%;
+    --sidebar-background: 42 42% 89%;    /* #EFE8D8 */
+    --sidebar-foreground: 60 8% 9%;
+    --sidebar-primary: 350 55% 31%;
+    --sidebar-primary-foreground: 42 39% 94%;
+    --sidebar-accent: 42 38% 88%;
+    --sidebar-accent-foreground: 60 8% 9%;
+    --sidebar-border: 43 33% 83%;
+    --sidebar-ring: 350 55% 31%;
 
     /* Typography */
-    --font-display: 'Syne', sans-serif;
+    --font-display: 'Fraunces', serif;
     --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
+    /* Milestone Tracker — Editorial Vinho (Dark) */
+    --background: 22 17% 9%;         /* #1C1714 */
+    --foreground: 38 35% 89%;        /* #EDE6DA */
+
+    --card: 27 18% 12%;              /* #241E19 */
+    --card-foreground: 38 35% 89%;
+
+    --popover: 27 18% 12%;
+    --popover-foreground: 38 35% 89%;
+
+    --primary: 353 53% 55%;          /* #C9505F Vinho claro */
+    --primary-foreground: 22 17% 9%;
+
+    --secondary: 28 25% 13%;
+    --secondary-foreground: 38 35% 89%;
+
+    --muted: 28 25% 13%;             /* #2A2119 */
+    --muted-foreground: 35 13% 60%;  /* #A79C8D */
+
+    /* accent stays a neutral warm surface, see light-mode note above */
+    --accent: 27 20% 15%;
+    --accent-foreground: 38 35% 89%;
+
+    --destructive: 4 66% 65%;
+    --destructive-foreground: 22 17% 9%;
+
+    --border: 30 24% 16%;            /* #33291F */
+    --input: 30 24% 16%;
+    --ring: 353 53% 55%;
+
+    /* Semantic status colors — distinct from the brand accent */
+    --status-completed: 137 22% 59%;     /* #7FAE8C */
+    --status-in-progress: 37 69% 61%;    /* #E0AA55 */
+    --status-delayed: 4 66% 65%;         /* #E0726A */
+    --status-not-started: 35 13% 60%;
+
+    /* Sidebar */
+    --sidebar-background: 26 18% 8%;     /* #171310 */
+    --sidebar-foreground: 38 35% 89%;
+    --sidebar-primary: 353 53% 55%;
+    --sidebar-primary-foreground: 22 17% 9%;
+    --sidebar-accent: 28 25% 13%;
+    --sidebar-accent-foreground: 38 35% 89%;
+    --sidebar-border: 30 24% 16%;
+    --sidebar-ring: 353 53% 55%;
   }
 }
 
@@ -74,6 +125,28 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
   }
+}
+
+/* EPK export surface — always renders in the light Editorial Vinho palette,
+   regardless of the app's current theme, since the document is meant to be
+   shared/printed outside the app. */
+.epk-print-surface {
+  --background: 42 39% 94%;
+  --foreground: 60 8% 9%;
+  --card: 42 50% 96%;
+  --card-foreground: 60 8% 9%;
+  --primary: 350 55% 31%;
+  --primary-foreground: 42 39% 94%;
+  --muted: 42 38% 88%;
+  --muted-foreground: 53 4% 40%;
+  --accent: 42 33% 91%;
+  --accent-foreground: 60 8% 9%;
+  --border: 43 33% 83%;
+  --status-completed: 135 26% 33%;
+  --status-in-progress: 38 60% 45%;
+  --status-delayed: 5 60% 41%;
+  --status-not-started: 53 4% 40%;
+  color-scheme: light;
 }
 
 /* Custom scrollbar */
@@ -103,6 +176,26 @@
   }
 }
 
+/* Editorial hover underline — left-to-right sweep, for clickable titles */
+.link-editorial {
+  position: relative;
+  text-decoration: none;
+}
+.link-editorial::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 0%;
+  background-color: hsl(var(--primary));
+  transition: width 200ms ease-out;
+}
+.link-editorial:hover::after,
+.link-editorial:focus-visible::after {
+  width: 100%;
+}
+
 /* Progress pulse animation */
 @keyframes progress-pulse {
   0%, 100% { opacity: 1; }
@@ -121,4 +214,24 @@
 
 .animate-flip {
   animation: flip-in 0.6s ease-out;
+}
+
+/* Jornada da Carreira ("Wrapped") — Stories-style progress segment fill */
+@keyframes wrapped-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.animate-wrapped-fill {
+  animation: wrapped-fill 6s linear forwards;
+  transform-origin: left;
+}
+
+@keyframes wrapped-card-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-wrapped-card-in {
+  animation: wrapped-card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }

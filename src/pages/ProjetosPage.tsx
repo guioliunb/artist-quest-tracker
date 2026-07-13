@@ -1,247 +1,124 @@
 import { AppLayout } from '@/components/AppLayout';
-import { useProject } from '@/contexts/ProjectContext';
-import { CAREER_PHASE_LABELS, CareerPhase, HypothesisStatus, Project, Artist } from '@/types';
+import { useProject, useBasePath } from '@/contexts/ProjectContext';
+import { CAREER_PHASE_LABELS, PROJECT_TYPE_LABELS } from '@/types';
 import { ProgressBar } from '@/components/ProgressBar';
-import { Plus, FolderOpen, CheckCircle2, Clock, Trash2 } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { EmptyState } from '@/components/EmptyState';
+import { Plus, CheckCircle2, Clock, ArrowRight, MessageCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
-
-function NewProjectDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
-  const { addProject } = useProject();
-  const navigate = useNavigate();
-  const [step, setStep] = useState(1);
-  const [form, setForm] = useState({
-    projectName: '',
-    artistName: '',
-    genre: '',
-    stage: 'Diagnóstico',
-    careerPhase: 'definicao_mda' as CareerPhase,
-    currentQuarter: 1,
-    currentYear: new Date().getFullYear(),
-    bigGoal: '',
-    quarterGoal: '',
-  });
-
-  const set = (key: string, value: any) => setForm(prev => ({ ...prev, [key]: value }));
-
-  const handleCreate = () => {
-    if (!form.projectName.trim() || !form.artistName.trim()) {
-      toast.error('Nome do projeto e do artista são obrigatórios');
-      return;
-    }
-    const id = `p-${Date.now()}`;
-    const artistId = `a-${Date.now()}`;
-    const project: Project = {
-      id,
-      artistId,
-      name: form.projectName,
-      currentQuarter: form.currentQuarter,
-      currentYear: form.currentYear,
-      stage: form.stage,
-      overallProgress: 0,
-      createdAt: new Date().toISOString().split('T')[0],
-      careerPhase: form.careerPhase,
-      bigGoal: form.bigGoal || undefined,
-      quarterGoal: form.quarterGoal || undefined,
-      dna: {
-        artisticConcept: '',
-        artisticNarrative: '',
-        culturalUniverse: '',
-        references: [],
-        artisticHypothesis: '',
-        hypothesisStatus: 'nao_testada' as HypothesisStatus,
-      },
-      positioning: {
-        mainGenre: form.genre,
-        subGenre: '',
-        culturalTerritory: '',
-        valueProposition: '',
-      },
-      audience: {
-        ageRange: '',
-        culturalScene: '',
-        predominantAesthetic: '',
-        behavior: '',
-        mainPlatforms: [],
-      },
-    };
-    const artist: Artist = {
-      id: artistId,
-      name: form.artistName,
-      genre: form.genre || undefined,
-      createdAt: new Date().toISOString().split('T')[0],
-    };
-    addProject(project, artist);
-    toast.success('Projeto criado com sucesso!');
-    onOpenChange(false);
-    setStep(1);
-    setForm({ projectName: '', artistName: '', genre: '', stage: 'Diagnóstico', careerPhase: 'definicao_mda', currentQuarter: 1, currentYear: new Date().getFullYear(), bigGoal: '', quarterGoal: '' });
-    navigate('/configuracoes');
-  };
-
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-card border-border text-foreground max-w-lg">
-        <DialogHeader>
-          <DialogTitle className="font-display text-lg">Novo Projeto</DialogTitle>
-        </DialogHeader>
-
-        {step === 1 && (
-          <div className="space-y-4 py-2">
-            <div>
-              <label className="text-sm text-muted-foreground mb-1 block">Nome do Projeto *</label>
-              <Input value={form.projectName} onChange={e => set('projectName', e.target.value)} placeholder="Ex: Projeto RAY EL VOX — Era 1" className="bg-background border-border text-foreground" />
-            </div>
-            <div>
-              <label className="text-sm text-muted-foreground mb-1 block">Nome do Artista *</label>
-              <Input value={form.artistName} onChange={e => set('artistName', e.target.value)} placeholder="Ex: RAY EL VOX" className="bg-background border-border text-foreground" />
-            </div>
-            <div>
-              <label className="text-sm text-muted-foreground mb-1 block">Gênero Musical</label>
-              <Input value={form.genre} onChange={e => set('genre', e.target.value)} placeholder="Ex: Pop Alternativo / Eletrônico" className="bg-background border-border text-foreground" />
-            </div>
-            <div>
-              <label className="text-sm text-muted-foreground mb-1 block">Estágio</label>
-              <Input value={form.stage} onChange={e => set('stage', e.target.value)} placeholder="Ex: Definição de Conceito" className="bg-background border-border text-foreground" />
-            </div>
-          </div>
-        )}
-
-        {step === 2 && (
-          <div className="space-y-4 py-2">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="text-sm text-muted-foreground mb-1 block">Trimestre</label>
-                <Select value={String(form.currentQuarter)} onValueChange={v => set('currentQuarter', Number(v))}>
-                  <SelectTrigger className="bg-background border-border text-foreground"><SelectValue /></SelectTrigger>
-                  <SelectContent className="bg-popover border-border">
-                    {[1, 2, 3, 4].map(q => <SelectItem key={q} value={String(q)}>Q{q}</SelectItem>)}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <label className="text-sm text-muted-foreground mb-1 block">Fase da Carreira</label>
-                <Select value={form.careerPhase} onValueChange={v => set('careerPhase', v)}>
-                  <SelectTrigger className="bg-background border-border text-foreground"><SelectValue /></SelectTrigger>
-                  <SelectContent className="bg-popover border-border">
-                    {Object.entries(CAREER_PHASE_LABELS).map(([v, l]) => <SelectItem key={v} value={v}>{l}</SelectItem>)}
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-            <div>
-              <label className="text-sm text-muted-foreground mb-1 block">Grande Meta</label>
-              <Textarea value={form.bigGoal} onChange={e => set('bigGoal', e.target.value)} placeholder="Objetivo macro da carreira" className="bg-background border-border text-foreground" rows={2} />
-            </div>
-            <div>
-              <label className="text-sm text-muted-foreground mb-1 block">Objetivo do Trimestre</label>
-              <Textarea value={form.quarterGoal} onChange={e => set('quarterGoal', e.target.value)} placeholder="O que atingir neste trimestre" className="bg-background border-border text-foreground" rows={2} />
-            </div>
-          </div>
-        )}
-
-        <DialogFooter className="gap-2">
-          {step === 2 && (
-            <Button variant="outline" onClick={() => setStep(1)} className="border-border text-muted-foreground">
-              Voltar
-            </Button>
-          )}
-          {step === 1 ? (
-            <Button onClick={() => setStep(2)} className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Próximo
-            </Button>
-          ) : (
-            <Button onClick={handleCreate} className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <Plus className="w-4 h-4 mr-1" /> Criar Projeto
-            </Button>
-          )}
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-  );
-}
+import { cn } from '@/lib/utils';
+import { buildWhatsAppLink } from '@/lib/helpers';
 
 export default function ProjetosPage() {
   const { projects, activeProjectId, setActiveProjectId } = useProject();
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const basePath = useBasePath();
   const navigate = useNavigate();
 
   const handleSelect = (id: string) => {
     setActiveProjectId(id);
     toast.success('Projeto ativo atualizado');
-    navigate('/dashboard');
+    navigate(`${basePath}/dashboard`);
   };
 
   return (
     <AppLayout>
-      <div className="p-6 lg:p-10 max-w-4xl">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="font-display font-bold text-2xl text-foreground">Projetos</h1>
+      <div className="p-6 lg:p-10 max-w-6xl">
+        <div className="flex items-center justify-between mb-8 pb-4 border-b-2 border-foreground">
+          <div>
+            <h1 className="font-display font-bold text-2xl text-foreground">Clientes</h1>
+            <p className="text-sm text-muted-foreground mt-1">
+              Selecione um cliente para abrir o painel exclusivo dele — Dashboard, Milestones, Indicadores e Agenda passam a refletir apenas os dados dele.
+            </p>
+          </div>
           <button
-            onClick={() => setDialogOpen(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:bg-primary/90 transition-colors"
+            onClick={() => navigate(`${basePath}/cadastro-artistico`)}
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:bg-primary/90 transition-colors shrink-0"
           >
             <Plus className="w-4 h-4" /> Novo Projeto
           </button>
         </div>
 
         {projects.length === 0 ? (
-          <div className="bg-card rounded-lg border border-border p-12 text-center">
-            <FolderOpen className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
-            <p className="text-sm text-muted-foreground">Nenhum projeto encontrado.</p>
+          <div className="bg-card rounded-lg border border-border">
+            <EmptyState
+              illustration="projetos"
+              title="Nenhum cliente cadastrado"
+              description="Cadastre o primeiro cliente para começar a acompanhar a carreira dele — DNA artístico, marcos, indicadores e agenda."
+              action={{ label: 'Novo Projeto', onClick: () => navigate(`${basePath}/cadastro-artistico`) }}
+            />
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
             {projects.map(({ project, artist }) => {
               const isActive = project.id === activeProjectId;
               return (
                 <div
                   key={project.id}
-                  className={`bg-card rounded-lg border p-5 transition-colors cursor-pointer group ${
-                    isActive ? 'border-primary/50' : 'border-border hover:border-border/80'
-                  }`}
+                  className={cn(
+                    'bg-card rounded-xl border p-5 transition-all cursor-pointer group flex flex-col',
+                    isActive ? 'border-primary/60 ring-1 ring-primary/20' : 'border-border hover:border-muted-foreground/40 hover:-translate-y-0.5',
+                  )}
                   onClick={() => handleSelect(project.id)}
                 >
-                  <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-start gap-3 mb-4">
+                    <div
+                      className={cn(
+                        'w-11 h-11 rounded-lg flex items-center justify-center shrink-0 font-display font-bold text-base',
+                        isActive ? 'bg-primary/20 text-primary' : 'bg-accent text-foreground',
+                      )}
+                    >
+                      {artist.name.charAt(0)}
+                    </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-display font-semibold text-sm text-foreground truncate">{project.name}</h3>
+                      <div className="flex items-center gap-2">
+                        <h3 className="link-editorial font-display font-semibold text-sm text-foreground truncate">{artist.name}</h3>
                         {isActive && (
-                          <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-primary/20 text-primary">
+                          <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-primary/20 text-primary shrink-0">
                             Ativo
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-muted-foreground">{artist.name} · {artist.genre || 'Gênero não definido'}</p>
+                      <p className="text-xs text-muted-foreground truncate">{artist.genre || 'Gênero não definido'}</p>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      {project.overallProgress >= 100 ? (
-                        <span className="flex items-center gap-1 text-status-green"><CheckCircle2 className="w-3.5 h-3.5" /> Finalizado</span>
-                      ) : (
-                        <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> Em andamento</span>
-                      )}
-                    </div>
+                    {artist.whatsapp && (
+                      <a
+                        href={buildWhatsAppLink(artist.whatsapp, `Olá ${artist.name}, tudo bem?`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        title="Contatar via WhatsApp"
+                        className="shrink-0 w-8 h-8 rounded-md flex items-center justify-center text-status-completed hover:bg-status-completed/10 transition-colors"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
 
-                  <div className="flex items-center gap-4 mb-2">
+                  <p className="text-xs text-muted-foreground mb-4 line-clamp-1">{project.name}</p>
+
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="flex-1">
                       <ProgressBar value={project.overallProgress} size="sm" />
                     </div>
-                    <span className="text-xs font-mono text-muted-foreground w-10 text-right">{project.overallProgress}%</span>
+                    <span className="text-xs font-mono text-muted-foreground w-9 text-right">{project.overallProgress}%</span>
                   </div>
 
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                    <span>Q{project.currentQuarter} {project.currentYear}</span>
-                    <span>·</span>
-                    <span>{project.stage}</span>
-                    <span>·</span>
-                    <span>{CAREER_PHASE_LABELS[project.careerPhase]}</span>
+                  <div className="flex items-center gap-1.5 flex-wrap mb-4">
+                    <span className="text-[11px] px-2 py-0.5 rounded-full bg-primary/15 text-primary">{PROJECT_TYPE_LABELS[project.projectType]}</span>
+                    <span className="text-[11px] px-2 py-0.5 rounded-full bg-accent text-muted-foreground">Q{project.currentQuarter} {project.currentYear}</span>
+                    <span className="text-[11px] px-2 py-0.5 rounded-full bg-accent text-muted-foreground">{project.stage}</span>
+                    <span className="text-[11px] px-2 py-0.5 rounded-full bg-accent text-muted-foreground">{CAREER_PHASE_LABELS[project.careerPhase]}</span>
+                  </div>
+
+                  <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
+                    {project.overallProgress >= 100 ? (
+                      <span className="flex items-center gap-1 text-xs text-status-completed"><CheckCircle2 className="w-3.5 h-3.5" /> Finalizado</span>
+                    ) : (
+                      <span className="flex items-center gap-1 text-xs text-muted-foreground"><Clock className="w-3.5 h-3.5" /> Em andamento</span>
+                    )}
+                    <span className="flex items-center gap-1 text-xs font-medium text-foreground opacity-0 group-hover:opacity-100 transition-opacity">
+                      Abrir painel <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
                   </div>
                 </div>
               );
@@ -249,8 +126,6 @@ export default function ProjetosPage() {
           </div>
         )}
       </div>
-
-      <NewProjectDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </AppLayout>
   );
 }

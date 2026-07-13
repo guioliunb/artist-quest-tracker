@@ -1,0 +1,115 @@
+{
+  "period": { "start": "2026-05-01", "end": "2026-06-30" },
+  "results": [
+    {
+      "slug": "facebook",
+      "response": {
+        "fb:page_reach": {
+          "values": 82400,
+          "trend": { "data": [3200, 3800, 4100, 4900, 5600, 6300, 7100, 8200, 9400, 10800, 12100, 13900] },
+          "comparison": { "values": 61200, "difference": 34.6, "absoluteDifference": 21200 }
+        },
+        "fb:page_post_engagements": {
+          "values": 15420,
+          "trend": { "data": [520, 610, 680, 740, 820, 910, 1020, 1180, 1340, 1520, 1710, 1960] },
+          "comparison": { "values": 10800, "difference": 42.8, "absoluteDifference": 4620 }
+        },
+        "fb:page_post_rate_engagements": {
+          "values": 8.4,
+          "trend": { "data": [5.1, 5.4, 5.6, 5.9, 6.2, 6.5, 6.9, 7.2, 7.6, 7.9, 8.1, 8.4] },
+          "comparison": { "values": 6.1, "difference": 37.7, "absoluteDifference": 2.3 }
+        },
+        "fb:total_video_views": {
+          "values": 214600,
+          "trend": { "data": [8400, 9600, 10800, 12200, 13900, 15700, 17800, 20100, 22700, 25600, 28900, 32600] },
+          "comparison": { "values": 152300, "difference": 40.9, "absoluteDifference": 62300 }
+        }
+      }
+    },
+    {
+      "slug": "instagram_business",
+      "response": {
+        "ig:profile_views": {
+          "values": 54300,
+          "trend": { "data": [1900, 2100, 2400, 2700, 3100, 3500, 4000, 4500, 5100, 5800, 6500, 7300] },
+          "comparison": { "values": 38900, "difference": 39.6, "absoluteDifference": 15400 }
+        },
+        "ig:views": {
+          "values": 481200,
+          "trend": { "data": [16800, 19200, 21900, 25000, 28500, 32500, 37000, 42200, 48100, 54800, 62400, 71100] },
+          "comparison": { "values": 337600, "difference": 42.5, "absoluteDifference": 143600 }
+        },
+        "ig:stories_views": {
+          "values": 96700,
+          "trend": { "data": [3400, 3800, 4300, 4900, 5600, 6300, 7200, 8200, 9300, 10600, 12000, 13600] },
+          "comparison": { "values": 71200, "difference": 35.8, "absoluteDifference": 25500 }
+        },
+        "ig:reach_over_time": {
+          "values": 210500,
+          "trend": { "data": [7200, 8100, 9200, 10500, 12000, 13700, 15600, 17800, 20300, 23100, 26300, 29900] },
+          "comparison": { "values": 148900, "difference": 41.4, "absoluteDifference": 61600 }
+        }
+      }
+    },
+    {
+      "slug": "tiktok",
+      "response": {
+        "tiktok:views": {
+          "values": 1258000,
+          "trend": { "data": [44000, 50200, 57400, 65700, 75200, 86100, 98600, 112900, 129300, 148100, 169700, 194400] },
+          "comparison": { "values": 812000, "difference": 54.9, "absoluteDifference": 446000 }
+        },
+        "tiktok:likes": {
+          "values": 212400,
+          "trend": { "data": [7400, 8500, 9700, 11100, 12700, 14500, 16600, 19000, 21700, 24800, 28400, 32500] },
+          "comparison": { "values": 139800, "difference": 51.9, "absoluteDifference": 72600 }
+        },
+        "tiktok:comments": {
+          "values": 18300,
+          "trend": { "data": [640, 730, 830, 950, 1080, 1230, 1400, 1600, 1830, 2090, 2390, 2730] },
+          "comparison": { "values": 11900, "difference": 53.8, "absoluteDifference": 6400 }
+        },
+        "tiktok:share": {
+          "values": 42100,
+          "trend": { "data": [1470, 1680, 1920, 2190, 2500, 2850, 3250, 3710, 4230, 4830, 5510, 6280] },
+          "comparison": { "values": 27400, "difference": 53.6, "absoluteDifference": 14700 }
+        },
+        "tiktok:follows": {
+          "values": 15600,
+          "trend": { "data": [540, 620, 710, 810, 930, 1060, 1210, 1380, 1580, 1800, 2060, 2350] },
+          "comparison": { "values": 9800, "difference": 59.2, "absoluteDifference": 5800 }
+        }
+      }
+    },
+    {
+      "slug": "youtube",
+      "response": {
+        "youtube:views": {
+          "values": 324500,
+          "trend": { "data": [11300, 12900, 14800, 16900, 19300, 22000, 25100, 28700, 32700, 37300, 42600, 48600] },
+          "comparison": { "values": 231800, "difference": 40.0, "absoluteDifference": 92700 }
+        },
+        "youtube:likes": {
+          "values": 41200,
+          "trend": { "data": [1440, 1650, 1880, 2150, 2460, 2810, 3200, 3660, 4170, 4760, 5430, 6190] },
+          "comparison": { "values": 28900, "difference": 42.6, "absoluteDifference": 12300 }
+        },
+        "youtube:comments": {
+          "values": 5240,
+          "trend": { "data": [180, 210, 240, 270, 310, 360, 410, 470, 530, 610, 690, 790] },
+          "comparison": { "values": 3600, "difference": 45.6, "absoluteDifference": 1640 }
+        },
+        "youtube:shares": {
+          "values": 6120,
+          "trend": { "data": [210, 240, 280, 320, 360, 410, 470, 540, 610, 700, 800, 910] },
+          "comparison": { "values": 4300, "difference": 42.3, "absoluteDifference": 1820 }
+        },
+        "youtube:subscribers_variation": {
+          "values": 3840,
+          "trend": { "data": [110, 130, 150, 170, 200, 230, 260, 300, 340, 390, 450, 510] },
+          "comparison": { "values": 2600, "difference": 47.7, "absoluteDifference": 1240 }
+        }
+      }
+    }
+  ]
+}

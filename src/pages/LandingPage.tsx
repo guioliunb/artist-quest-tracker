@@ -20,12 +20,20 @@ export default function LandingPage() {
         Transforme talento em demanda real. O Milestone Tracker organiza cada etapa da sua carreira — do conceito artístico à monetização — com clareza, método e visão de longo prazo.
       </p>
 
-      <button
-        onClick={() => navigate("/dashboard")}
-        className="rounded-md bg-[hsl(25,95%,53%)] px-10 py-4 text-lg font-bold uppercase tracking-widest text-black transition-all hover:bg-[hsl(25,95%,60%)] hover:scale-105"
-      >
-        Entrar
-      </button>
+      <div className="flex flex-col sm:flex-row items-center gap-4">
+        <button
+          onClick={() => navigate("/dashboard")}
+          className="rounded-md bg-primary px-10 py-4 text-lg font-bold uppercase tracking-widest text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105"
+        >
+          Entrar
+        </button>
+        <button
+          onClick={() => navigate("/demo")}
+          className="rounded-md border border-white/30 px-10 py-4 text-lg font-bold uppercase tracking-widest text-white transition-all hover:bg-white/10 hover:scale-105"
+        >
+          Ver demonstração
+        </button>
+      </div>
 
       <span className="mt-8 text-xs text-white/30 tracking-wide uppercase">
         Milestone Tracker — Método proprietário de desenvolvimento artístico
