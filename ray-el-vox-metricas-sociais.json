@@ -1,0 +1,4303 @@
+{
+  "project": {
+    "id": 700214,
+    "name": "RAY EL VOX",
+    "logo": "",
+    "timezone": "America/Sao_Paulo",
+    "locale": "pt_br",
+    "date_format": "DD/MM/YYYY",
+    "decimal_separator_format": "dot_comma"
+  },
+  "period": {
+    "start": "2026-04-06",
+    "end": "2026-05-05"
+  },
+  "api_call_interval_seconds": 5,
+  "results": [
+    {
+      "slug": "facebook",
+      "label": "Facebook",
+      "integration": {
+        "id": 2342978,
+        "source_id": "201519836628926",
+        "name": "RAY EL VOX",
+        "slug": "facebook",
+        "status": "active",
+        "project_id": 509099,
+        "project_name": "RAY EL VOX",
+        "created_at": "2024-11-06T15:33:41-03:00",
+        "updated_at": "2026-04-24T03:03:05-03:00"
+      },
+      "requested_reference_keys": [
+        "fb:follows_over_time",
+        "fb:reach_over_time",
+        "fb:page_reach",
+        "fb:page_reach_total",
+        "fb:page_media_views",
+        "fb:page_posts_count",
+        "fb:page_post_engagements",
+        "fb:page_post_rate_engagements",
+        "fb:page_fans_online_per_day",
+        "fb:total_video_views",
+        "fb:organic_video_views",
+        "fb:paid_video_views",
+        "fb:post_video_avg_time_watched",
+        "fb:post_video_view_time"
+      ],
+      "metrics": [
+        {
+          "metrics": [
+            "page_follows"
+          ],
+          "dimensions": [
+            "date"
+          ],
+          "reference_key": "fb:follows_over_time",
+          "component": "chart_v1",
+          "chart_type": "line",
+          "references": {
+            "title": "Follower growth",
+            "description": "The graph describes the evolution of the page's followers",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Estimated by the network",
+              "history": "retroactive",
+              "value": "partial value"
+            },
+            "labels": [
+              "Follows"
+            ]
+          },
+          "id": "fb:follows_over_time"
+        },
+        {
+          "metrics": [
+            "page_impressions_unique",
+            "page_impressions_organic_unique",
+            "page_impressions_paid_unique"
+          ],
+          "dimensions": [
+            "date"
+          ],
+          "reference_key": "fb:reach_over_time",
+          "component": "chart_v1",
+          "chart_type": "line",
+          "references": {
+            "title": "Page reach evolution",
+            "description": "The graph shows the evolution of the page's total, organic, and paid reach. Organic reach is calculated by subtracting total reach from paid reach.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Estimated by the network",
+              "history": "retroactive",
+              "value": "partial value"
+            },
+            "labels": [
+              "Total",
+              "Organic",
+              "Paid"
+            ]
+          },
+          "id": "fb:reach_over_time"
+        },
+        {
+          "metrics": [
+            "page_impressions_unique"
+          ],
+          "reference_key": "fb:page_reach",
+          "component": "number_v1",
+          "references": {
+            "title": "Sum of Daily Page Reach",
+            "description": "Sum of the unique daily reach of your page or about it. If a user saw content on your page on two different days, it will be counted twice. This includes posts, check-ins, ads, social information about people who interacted with your page, for example. This metric is an approximate value.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "calculated",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "fb:page_reach"
+        },
+        {
+          "metrics": [
+            "page_impressions_unique"
+          ],
+          "dimensions": [
+            "total"
+          ],
+          "reference_key": "fb:page_reach_total",
+          "component": "number_v1",
+          "type": "total_reach",
+          "references": {
+            "title": "Total Page Reach",
+            "description": "The number of unique accounts that viewed your content (posts, stories, ads) at least once. This also includes reach from other sources, such as tags, check-ins, and Page or profile visits. This data is estimated and Facebook reports it for intervals of up to 90 days. For longer intervals, we recommend adding the \"Sum of Daily Page Reach\" metric.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "calculated",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "fb:page_reach_total"
+        },
+        {
+          "metrics": [
+            "page_media_view"
+          ],
+          "reference_key": "fb:page_media_views",
+          "component": "number_v1",
+          "added_date": "2025-10-20",
+          "references": {
+            "title": "Total Media Views",
+            "description": "The number of times any content from your Page or about your Page entered a person's screen. This includes posts, stories, ads, as well other content or information on your Page.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "fb:page_media_views"
+        },
+        {
+          "metrics": [
+            "page_posts_count"
+          ],
+          "reference_key": "fb:page_posts_count",
+          "component": "number_v1",
+          "type": "total_posts_count",
+          "references": {
+            "title": "Posts Count",
+            "description": "Total number of posts on your page in the analyzed period.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "total value"
+            }
+          },
+          "id": "fb:page_posts_count"
+        },
+        {
+          "reference_key": "fb:page_post_engagements",
+          "component": "number_v1",
+          "metrics": [
+            "page_post_engagements"
+          ],
+          "type": "total_posts_engagement",
+          "references": {
+            "title": "Post engagement",
+            "description": "The number of times people engaged with your posts during the reporting period, regardless of when they were posted, through reactions, comments, shares, and more.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "fb:page_post_engagements"
+        },
+        {
+          "reference_key": "fb:page_post_rate_engagements",
+          "component": "number_v1",
+          "metrics": [
+            "page_post_rate_engagements"
+          ],
+          "references": {
+            "title": "Post engagement rate",
+            "description": "The engagement rate for Facebook posts is determined by dividing the total engagement of the post by the total number of impressions of the post, multiplied by 100. This takes into account the results of any post in the selected analysis period, regardless of the date it was published. This engagement covers all interactions people have with your ads and posts while they are being displayed. It can involve actions such as reactions, comments, shares, offer redemptions, photo or video views, or link clicks.",
+            "formatting_function": "add_percentage",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "calculated",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "fb:page_post_rate_engagements"
+        },
+        {
+          "reference_key": "fb:page_fans_online_per_day",
+          "metrics": [
+            "page_posts_impressions"
+          ],
+          "dimensions": [
+            "day"
+          ],
+          "component": "chart_v1",
+          "chart_type": "bar",
+          "references": {
+            "title": "Best day for posts",
+            "description": "This chart shows which day performed best considering the Impressions of posts on your Facebook Page.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "calculated",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "fb:page_fans_online_per_day"
+        },
+        {
+          "reference_key": "fb:total_video_views",
+          "metrics": [
+            "page_video_views"
+          ],
+          "component": "number_v1",
+          "references": {
+            "title": "Reels Views",
+            "description": "The number of times your videos were viewed during the analyzed period, regardless of whether the content was published for at least 3 seconds or nearly its full duration if it is shorter than 3 seconds. This value counts each video view and excludes replays.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "fb:total_video_views"
+        },
+        {
+          "reference_key": "fb:organic_video_views",
+          "metrics": [
+            "page_video_views_organic"
+          ],
+          "component": "number_v1",
+          "references": {
+            "title": "Organic Reels views",
+            "description": "The number of times your videos were viewed during the analyzed period, regardless of when the content was published, through organic reach, for at least 3 seconds or almost their total duration if they are shorter than 3 seconds. This value counts each view of a video and excludes replays.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "fb:organic_video_views"
+        },
+        {
+          "reference_key": "fb:paid_video_views",
+          "metrics": [
+            "page_video_views_paid"
+          ],
+          "component": "number_v1",
+          "references": {
+            "title": "Paid views of Reels",
+            "description": "The number of times your promoted videos were viewed during the analyzed period, regardless of when the content was published, for at least 3 seconds or for almost their entire duration if they are less than 3 seconds. This value counts each view of a video and excludes replays.",
+            "tags": {
+              "cost": "paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "fb:paid_video_views"
+        },
+        {
+          "reference_key": "fb:post_video_avg_time_watched",
+          "metrics": [
+            "post_video_avg_time_watched"
+          ],
+          "dimensions": [
+            "video_reels"
+          ],
+          "component": "number_v1",
+          "references": {
+            "title": "Average viewing time of reels",
+            "formatting_function": "milliseconds_to_hours_minutes_seconds",
+            "description": "The average play time of your video. This metric is calculated by dividing the watch time by the number of initial views. An initial view is when your video starts playing for the first time in a video session.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "total value"
+            }
+          },
+          "id": "fb:post_video_avg_time_watched"
+        },
+        {
+          "reference_key": "fb:post_video_view_time",
+          "metrics": [
+            "post_video_view_time"
+          ],
+          "dimensions": [
+            "video_reels"
+          ],
+          "component": "number_v1",
+          "references": {
+            "title": "Total viewing time of Reels",
+            "description": "The total number of minutes your reels have been viewed from when they were posted until the time the report is generated, including replays.",
+            "formatting_function": "milliseconds_to_minutes_with_decimal_places",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "total value"
+            }
+          },
+          "id": "fb:post_video_view_time"
+        }
+      ],
+      "missing_reference_keys": [],
+      "request": {
+        "integrationId": 2342978,
+        "start": "2026-04-06",
+        "end": "2026-05-05",
+        "metrics": [
+          {
+            "metrics": [
+              "page_follows"
+            ],
+            "dimensions": [
+              "date"
+            ],
+            "reference_key": "fb:follows_over_time",
+            "component": "chart_v1",
+            "chart_type": "line",
+            "references": {
+              "title": "Follower growth",
+              "description": "The graph describes the evolution of the page's followers",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Estimated by the network",
+                "history": "retroactive",
+                "value": "partial value"
+              },
+              "labels": [
+                "Follows"
+              ]
+            },
+            "id": "fb:follows_over_time"
+          },
+          {
+            "metrics": [
+              "page_impressions_unique",
+              "page_impressions_organic_unique",
+              "page_impressions_paid_unique"
+            ],
+            "dimensions": [
+              "date"
+            ],
+            "reference_key": "fb:reach_over_time",
+            "component": "chart_v1",
+            "chart_type": "line",
+            "references": {
+              "title": "Page reach evolution",
+              "description": "The graph shows the evolution of the page's total, organic, and paid reach. Organic reach is calculated by subtracting total reach from paid reach.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Estimated by the network",
+                "history": "retroactive",
+                "value": "partial value"
+              },
+              "labels": [
+                "Total",
+                "Organic",
+                "Paid"
+              ]
+            },
+            "id": "fb:reach_over_time"
+          },
+          {
+            "metrics": [
+              "page_impressions_unique"
+            ],
+            "reference_key": "fb:page_reach",
+            "component": "number_v1",
+            "references": {
+              "title": "Sum of Daily Page Reach",
+              "description": "Sum of the unique daily reach of your page or about it. If a user saw content on your page on two different days, it will be counted twice. This includes posts, check-ins, ads, social information about people who interacted with your page, for example. This metric is an approximate value.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "calculated",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "fb:page_reach"
+          },
+          {
+            "metrics": [
+              "page_impressions_unique"
+            ],
+            "dimensions": [
+              "total"
+            ],
+            "reference_key": "fb:page_reach_total",
+            "component": "number_v1",
+            "type": "total_reach",
+            "references": {
+              "title": "Total Page Reach",
+              "description": "The number of unique accounts that viewed your content (posts, stories, ads) at least once. This also includes reach from other sources, such as tags, check-ins, and Page or profile visits. This data is estimated and Facebook reports it for intervals of up to 90 days. For longer intervals, we recommend adding the \"Sum of Daily Page Reach\" metric.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "calculated",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "fb:page_reach_total"
+          },
+          {
+            "metrics": [
+              "page_media_view"
+            ],
+            "reference_key": "fb:page_media_views",
+            "component": "number_v1",
+            "added_date": "2025-10-20",
+            "references": {
+              "title": "Total Media Views",
+              "description": "The number of times any content from your Page or about your Page entered a person's screen. This includes posts, stories, ads, as well other content or information on your Page.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "fb:page_media_views"
+          },
+          {
+            "metrics": [
+              "page_posts_count"
+            ],
+            "reference_key": "fb:page_posts_count",
+            "component": "number_v1",
+            "type": "total_posts_count",
+            "references": {
+              "title": "Posts Count",
+              "description": "Total number of posts on your page in the analyzed period.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "total value"
+              }
+            },
+            "id": "fb:page_posts_count"
+          },
+          {
+            "reference_key": "fb:page_post_engagements",
+            "component": "number_v1",
+            "metrics": [
+              "page_post_engagements"
+            ],
+            "type": "total_posts_engagement",
+            "references": {
+              "title": "Post engagement",
+              "description": "The number of times people engaged with your posts during the reporting period, regardless of when they were posted, through reactions, comments, shares, and more.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "fb:page_post_engagements"
+          },
+          {
+            "reference_key": "fb:page_post_rate_engagements",
+            "component": "number_v1",
+            "metrics": [
+              "page_post_rate_engagements"
+            ],
+            "references": {
+              "title": "Post engagement rate",
+              "description": "The engagement rate for Facebook posts is determined by dividing the total engagement of the post by the total number of impressions of the post, multiplied by 100. This takes into account the results of any post in the selected analysis period, regardless of the date it was published. This engagement covers all interactions people have with your ads and posts while they are being displayed. It can involve actions such as reactions, comments, shares, offer redemptions, photo or video views, or link clicks.",
+              "formatting_function": "add_percentage",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "calculated",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "fb:page_post_rate_engagements"
+          },
+          {
+            "reference_key": "fb:page_fans_online_per_day",
+            "metrics": [
+              "page_posts_impressions"
+            ],
+            "dimensions": [
+              "day"
+            ],
+            "component": "chart_v1",
+            "chart_type": "bar",
+            "references": {
+              "title": "Best day for posts",
+              "description": "This chart shows which day performed best considering the Impressions of posts on your Facebook Page.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "calculated",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "fb:page_fans_online_per_day"
+          },
+          {
+            "reference_key": "fb:total_video_views",
+            "metrics": [
+              "page_video_views"
+            ],
+            "component": "number_v1",
+            "references": {
+              "title": "Reels Views",
+              "description": "The number of times your videos were viewed during the analyzed period, regardless of whether the content was published for at least 3 seconds or nearly its full duration if it is shorter than 3 seconds. This value counts each video view and excludes replays.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "fb:total_video_views"
+          },
+          {
+            "reference_key": "fb:organic_video_views",
+            "metrics": [
+              "page_video_views_organic"
+            ],
+            "component": "number_v1",
+            "references": {
+              "title": "Organic Reels views",
+              "description": "The number of times your videos were viewed during the analyzed period, regardless of when the content was published, through organic reach, for at least 3 seconds or almost their total duration if they are shorter than 3 seconds. This value counts each view of a video and excludes replays.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "fb:organic_video_views"
+          },
+          {
+            "reference_key": "fb:paid_video_views",
+            "metrics": [
+              "page_video_views_paid"
+            ],
+            "component": "number_v1",
+            "references": {
+              "title": "Paid views of Reels",
+              "description": "The number of times your promoted videos were viewed during the analyzed period, regardless of when the content was published, for at least 3 seconds or for almost their entire duration if they are less than 3 seconds. This value counts each view of a video and excludes replays.",
+              "tags": {
+                "cost": "paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "fb:paid_video_views"
+          },
+          {
+            "reference_key": "fb:post_video_avg_time_watched",
+            "metrics": [
+              "post_video_avg_time_watched"
+            ],
+            "dimensions": [
+              "video_reels"
+            ],
+            "component": "number_v1",
+            "references": {
+              "title": "Average viewing time of reels",
+              "formatting_function": "milliseconds_to_hours_minutes_seconds",
+              "description": "The average play time of your video. This metric is calculated by dividing the watch time by the number of initial views. An initial view is when your video starts playing for the first time in a video session.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "total value"
+              }
+            },
+            "id": "fb:post_video_avg_time_watched"
+          },
+          {
+            "reference_key": "fb:post_video_view_time",
+            "metrics": [
+              "post_video_view_time"
+            ],
+            "dimensions": [
+              "video_reels"
+            ],
+            "component": "number_v1",
+            "references": {
+              "title": "Total viewing time of Reels",
+              "description": "The total number of minutes your reels have been viewed from when they were posted until the time the report is generated, including replays.",
+              "formatting_function": "milliseconds_to_minutes_with_decimal_places",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "total value"
+              }
+            },
+            "id": "fb:post_video_view_time"
+          }
+        ]
+      },
+      "response": {
+        "fb:page_reach_total": {
+          "values": 1908,
+          "trend": {
+            "data": []
+          }
+        },
+        "fb:page_posts_count": {
+          "values": 17,
+          "trend": {
+            "data": []
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "fb:post_video_view_time": {
+          "values": 14223913,
+          "trend": {
+            "data": []
+          }
+        },
+        "fb:page_post_engagements": {
+          "values": 160,
+          "trend": {
+            "data": [
+              38,
+              13,
+              15,
+              15,
+              5,
+              2,
+              2,
+              0,
+              0,
+              5,
+              0,
+              3,
+              1,
+              1,
+              2,
+              2,
+              0,
+              6,
+              1,
+              8,
+              3,
+              4,
+              0,
+              2,
+              13,
+              3,
+              5,
+              5,
+              2,
+              4
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "fb:total_video_views": {
+          "values": 929,
+          "trend": {
+            "data": [
+              19,
+              10,
+              5,
+              5,
+              15,
+              2,
+              1,
+              0,
+              0,
+              63,
+              3,
+              74,
+              15,
+              9,
+              77,
+              10,
+              7,
+              32,
+              17,
+              125,
+              24,
+              8,
+              8,
+              17,
+              111,
+              16,
+              93,
+              112,
+              32,
+              19
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "fb:organic_video_views": {
+          "values": 929,
+          "trend": {
+            "data": [
+              19,
+              10,
+              5,
+              5,
+              15,
+              2,
+              1,
+              0,
+              0,
+              63,
+              3,
+              74,
+              15,
+              9,
+              77,
+              10,
+              7,
+              32,
+              17,
+              125,
+              24,
+              8,
+              8,
+              17,
+              111,
+              16,
+              93,
+              112,
+              32,
+              19
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "fb:paid_video_views": {
+          "values": 0,
+          "trend": {
+            "data": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "fb:post_video_avg_time_watched": {
+          "values": 6725.254373522459,
+          "trend": {
+            "data": []
+          }
+        },
+        "fb:page_reach": {
+          "values": 2801,
+          "trend": {
+            "data": [
+              177,
+              84,
+              108,
+              97,
+              47,
+              17,
+              11,
+              4,
+              5,
+              187,
+              15,
+              186,
+              39,
+              19,
+              175,
+              30,
+              17,
+              126,
+              33,
+              275,
+              78,
+              35,
+              42,
+              59,
+              254,
+              57,
+              228,
+              232,
+              78,
+              86
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "fb:page_media_views": {
+          "values": 3860,
+          "trend": {
+            "data": [
+              282,
+              0,
+              135,
+              0,
+              177,
+              0,
+              178,
+              0,
+              150,
+              0,
+              30,
+              0,
+              28,
+              0,
+              4,
+              0,
+              9,
+              0,
+              204,
+              0,
+              19,
+              0,
+              210,
+              0,
+              48,
+              0,
+              23,
+              0,
+              192,
+              0,
+              56,
+              0,
+              26,
+              0,
+              152,
+              0,
+              119,
+              0,
+              327,
+              0,
+              142,
+              0,
+              46,
+              0,
+              50,
+              0,
+              103,
+              0,
+              301,
+              0,
+              77,
+              0,
+              268,
+              0,
+              264,
+              0,
+              123,
+              0,
+              117,
+              0
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "fb:page_fans_online_per_day": {
+          "labels": [
+            "Sun",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat"
+          ],
+          "values": [
+            {
+              "data": [
+                69,
+                78,
+                44,
+                152,
+                98,
+                83,
+                101
+              ]
+            }
+          ]
+        },
+        "fb:follows_over_time": {
+          "labels": [
+            "2026-04-06T08:00:00+0000",
+            "2026-04-07T08:00:00+0000",
+            "2026-04-08T08:00:00+0000",
+            "2026-04-09T08:00:00+0000",
+            "2026-04-10T08:00:00+0000",
+            "2026-04-11T08:00:00+0000",
+            "2026-04-12T08:00:00+0000",
+            "2026-04-13T08:00:00+0000",
+            "2026-04-14T08:00:00+0000",
+            "2026-04-15T08:00:00+0000",
+            "2026-04-16T08:00:00+0000",
+            "2026-04-17T08:00:00+0000",
+            "2026-04-18T08:00:00+0000",
+            "2026-04-19T08:00:00+0000",
+            "2026-04-20T08:00:00+0000",
+            "2026-04-21T08:00:00+0000",
+            "2026-04-22T08:00:00+0000",
+            "2026-04-23T08:00:00+0000",
+            "2026-04-24T08:00:00+0000",
+            "2026-04-25T08:00:00+0000",
+            "2026-04-26T08:00:00+0000",
+            "2026-04-27T08:00:00+0000",
+            "2026-04-28T08:00:00+0000",
+            "2026-04-29T08:00:00+0000",
+            "2026-04-30T08:00:00+0000",
+            "2026-05-01T08:00:00+0000",
+            "2026-05-02T08:00:00+0000",
+            "2026-05-03T08:00:00+0000",
+            "2026-05-04T08:00:00+0000",
+            "2026-05-05T08:00:00+0000"
+          ],
+          "values": [
+            {
+              "name": "",
+              "data": [
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2315,
+                2314,
+                2314,
+                2314,
+                2314,
+                2314,
+                2314,
+                2314,
+                2314,
+                2314
+              ]
+            }
+          ]
+        },
+        "fb:page_post_rate_engagements": {
+          "values": 4.145077720207254,
+          "trend": {
+            "data": [
+              0.1347517730496454,
+              0.1111111111111111,
+              0.02824858757062147,
+              0.011235955056179775,
+              0,
+              0,
+              0.03571428571428571,
+              0.5,
+              0,
+              0.004901960784313725,
+              0.15789473684210525,
+              0,
+              0.2708333333333333,
+              0.21739130434782608,
+              0.010416666666666666
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "fb:reach_over_time": {
+          "labels": [
+            "2026-04-06T08:00:00+0000",
+            "2026-04-07T08:00:00+0000",
+            "2026-04-08T08:00:00+0000",
+            "2026-04-09T08:00:00+0000",
+            "2026-04-10T08:00:00+0000",
+            "2026-04-11T08:00:00+0000",
+            "2026-04-12T08:00:00+0000",
+            "2026-04-13T08:00:00+0000",
+            "2026-04-14T08:00:00+0000",
+            "2026-04-15T08:00:00+0000",
+            "2026-04-16T08:00:00+0000",
+            "2026-04-17T08:00:00+0000",
+            "2026-04-18T08:00:00+0000",
+            "2026-04-19T08:00:00+0000",
+            "2026-04-20T08:00:00+0000",
+            "2026-04-21T08:00:00+0000",
+            "2026-04-22T08:00:00+0000",
+            "2026-04-23T08:00:00+0000",
+            "2026-04-24T08:00:00+0000",
+            "2026-04-25T08:00:00+0000",
+            "2026-04-26T08:00:00+0000",
+            "2026-04-27T08:00:00+0000",
+            "2026-04-28T08:00:00+0000",
+            "2026-04-29T08:00:00+0000",
+            "2026-04-30T08:00:00+0000",
+            "2026-05-01T08:00:00+0000",
+            "2026-05-02T08:00:00+0000",
+            "2026-05-03T08:00:00+0000",
+            "2026-05-04T08:00:00+0000",
+            "2026-05-05T08:00:00+0000"
+          ],
+          "values": [
+            {
+              "name": "",
+              "data": [
+                177,
+                84,
+                108,
+                97,
+                47,
+                17,
+                11,
+                4,
+                5,
+                187,
+                15,
+                186,
+                39,
+                19,
+                175,
+                30,
+                17,
+                126,
+                33,
+                275,
+                78,
+                35,
+                42,
+                59,
+                254,
+                57,
+                228,
+                232,
+                78,
+                86
+              ]
+            },
+            {
+              "name": "",
+              "data": [
+                282,
+                135,
+                177,
+                178,
+                150,
+                30,
+                28,
+                4,
+                9,
+                204,
+                19,
+                210,
+                48,
+                23,
+                192,
+                56,
+                26,
+                152,
+                119,
+                327,
+                142,
+                46,
+                50,
+                103,
+                301,
+                77,
+                268,
+                264,
+                123,
+                117
+              ]
+            },
+            {
+              "name": "",
+              "data": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "slug": "instagram_business",
+      "label": "Instagram",
+      "integration": {
+        "id": 2264770,
+        "source_id": "17841404795052445",
+        "name": "rayelvoxoficial",
+        "slug": "instagram_business",
+        "status": "active",
+        "project_id": 509099,
+        "project_name": "RAY EL VOX",
+        "created_at": "2024-10-02T08:55:45-03:00",
+        "updated_at": "2026-04-24T03:02:40-03:00"
+      },
+      "requested_reference_keys": [
+        "ig:views",
+        "ig:reach_over_time",
+        "ig:profile_views",
+        "ig:followers_gender",
+        "ig:followers_gender_age",
+        "ig:followers_count_chart",
+        "ig:new_followers_count_chart",
+        "ig:online_followers_per_day",
+        "ig:online_followers_per_hour",
+        "ig:stories_datagrid",
+        "ig:stories_count",
+        "ig:stories_views",
+        "ig:stories_impressions",
+        "ig:retention",
+        "ig:replies",
+        "ig:exits",
+        "ig:taps_forward",
+        "ig:taps_back"
+      ],
+      "metrics": [
+        {
+          "metrics": [
+            "views"
+          ],
+          "reference_key": "ig:views",
+          "component": "number_v1",
+          "type": "total_impressions",
+          "references": {
+            "title": "Total view (organic + paid)",
+            "description": "Total number of times your content was played or viewed. Content includes reels, posts, stories, videos, live videos, and ads.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Estimated by the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:views"
+        },
+        {
+          "metrics": [
+            "reach"
+          ],
+          "dimensions": [
+            "date"
+          ],
+          "reference_key": "ig:reach_over_time",
+          "component": "chart_v1",
+          "chart_type": "line",
+          "added_date": "2023-10-18",
+          "references": {
+            "title": "Daily reach",
+            "description": "This graph shows the daily reach value over the analyzed period.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "calculated",
+              "history": "retroactive",
+              "value": "partial value"
+            },
+            "labels": [
+              "Reach"
+            ]
+          },
+          "id": "ig:reach_over_time"
+        },
+        {
+          "metrics": [
+            "profile_views"
+          ],
+          "reference_key": "ig:profile_views",
+          "component": "number_v1",
+          "references": {
+            "title": "Profile visits",
+            "description": "Total number of users that viewed your profile.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:profile_views"
+        },
+        {
+          "metrics": [
+            "followers"
+          ],
+          "dimensions": [
+            "gender"
+          ],
+          "reference_key": "ig:followers_gender",
+          "component": "chart_v1",
+          "chart_type": "pie",
+          "references": {
+            "title": "Followers by gender",
+            "description": "This graph shows your followers, grouped by gender. Instagram only returns data considering the current number of followers at the time of generating the report, regardless of the period selected for analysis.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "value": "total value",
+              "history": "not retroactive"
+            }
+          },
+          "id": "ig:followers_gender"
+        },
+        {
+          "metrics": [
+            "followers"
+          ],
+          "dimensions": [
+            "age",
+            "gender"
+          ],
+          "reference_key": "ig:followers_gender_age",
+          "component": "chart_v1",
+          "chart_type": "bar",
+          "references": {
+            "title": "Audience by age and gender",
+            "description": "This graph displays your audience, grouped by age and gender. Instagram only returns data considering the current number of followers at the time of generating the report, regardless of the period selected for analysis.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "value": "total value",
+              "history": "not retroactive"
+            },
+            "labels": [
+              "Male",
+              "Female",
+              "Unknown"
+            ]
+          },
+          "id": "ig:followers_gender_age"
+        },
+        {
+          "reference_key": "ig:followers_count_chart",
+          "component": "chart_v1",
+          "chart_type": "line",
+          "metrics": [
+            "followers"
+          ],
+          "dimensions": [
+            "date"
+          ],
+          "references": {
+            "title": "Followers evolution",
+            "description": "This graph describes the evolution of the growth of followers on your profile over time. Instagram only provides follower data for periods when the integration was active with Reportei.",
+            "labels": [
+              "Followers"
+            ],
+            "tags": {
+              "calculation": "Passed through the network",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:followers_count_chart"
+        },
+        {
+          "reference_key": "ig:new_followers_count_chart",
+          "component": "chart_v1",
+          "chart_type": "line",
+          "metrics": [
+            "new_followers"
+          ],
+          "dimensions": [
+            "date"
+          ],
+          "references": {
+            "title": "Variation of followers over time",
+            "description": "This graph shows the variation in the number of followers of the account over the analyzed period. It is calculated by subtracting the previous day's estimated followers from the current day's estimated followers. And it considers both followers gained and followers lost. If all values return equal to zero, this may indicate that we do not have data for the analyzed period.",
+            "labels": [
+              "Follower Variation"
+            ],
+            "tags": {
+              "cost": "organic",
+              "calculation": "calculated",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:new_followers_count_chart"
+        },
+        {
+          "reference_key": "ig:online_followers_per_day",
+          "component": "chart_v1",
+          "chart_type": "bar",
+          "metrics": [
+            "online_followers"
+          ],
+          "dimensions": [
+            "date"
+          ],
+          "references": {
+            "title": "Best day for posts",
+            "description": "This chart shows, on average, which day your followers were most active on Instagram in the last 30 days. Instagram only returns 30-day retroactive data from this chart, regardless of the period analyzed in the report.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "calculated",
+              "history": "not retroactive",
+              "value": "total value"
+            }
+          },
+          "id": "ig:online_followers_per_day"
+        },
+        {
+          "reference_key": "ig:online_followers_per_hour",
+          "component": "chart_v1",
+          "chart_type": "bar",
+          "metrics": [
+            "online_followers"
+          ],
+          "dimensions": [
+            "hour"
+          ],
+          "references": {
+            "title": "Best time for posts",
+            "description": "This chart shows, on average, when your followers were most active on Instagram in the last 30 days. Instagram only returns 30-day retroactive data from this chart, regardless of the period analyzed in the report. The information is being displayed in the Pacific Standard Time Zone (PST, time zone considered in this channel's API)",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "calculated",
+              "history": "not retroactive",
+              "value": "total value"
+            }
+          },
+          "id": "ig:online_followers_per_hour"
+        },
+        {
+          "reference_key": "ig:stories_datagrid",
+          "component": "datagrid_v1",
+          "metrics": [
+            "reach",
+            "views",
+            "follows",
+            "taps_forwards",
+            "taps_back",
+            "exits",
+            "retention",
+            "answers",
+            "automatic_forward",
+            "swipe_back",
+            "swipe_down",
+            "swipe_forward",
+            "swipe_up",
+            "likes",
+            "shares",
+            "total_interactions",
+            "date"
+          ],
+          "dimensions": [
+            "stories"
+          ],
+          "sort": [
+            "-reach"
+          ],
+          "references": {
+            "title": "Stories",
+            "description": "Stories from the analyzed period that had the greatest impact on your audience. Only shared stories from public accounts are shared. It is not possible to analyze story shares data from private accounts.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "not retroactive",
+              "value": "partial value",
+              "stories_metrics": "See metrics descriptions"
+            }
+          },
+          "id": "ig:stories_datagrid"
+        },
+        {
+          "reference_key": "ig:stories_count",
+          "component": "number_v1",
+          "metrics": [
+            "count"
+          ],
+          "dimensions": [
+            "stories"
+          ],
+          "references": {
+            "title": "Stories count",
+            "description": "Total number of stories posted on the analyzed period.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:stories_count"
+        },
+        {
+          "reference_key": "ig:stories_views",
+          "component": "number_v1",
+          "metrics": [
+            "views"
+          ],
+          "dimensions": [
+            "stories"
+          ],
+          "references": {
+            "title": "Total Stories Views",
+            "description": "The number of times your stories have been viewed or played since they were posted. This metric only considers organic views.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:stories_views"
+        },
+        {
+          "reference_key": "ig:stories_impressions",
+          "component": "number_v1",
+          "metrics": [
+            "impressions"
+          ],
+          "dimensions": [
+            "stories"
+          ],
+          "references": {
+            "title": "Total Stories Impressions",
+            "description": "Total number of times the stories in the analyzed period were viewed organically.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:stories_impressions"
+        },
+        {
+          "reference_key": "ig:retention",
+          "component": "number_v1",
+          "metrics": [
+            "retention"
+          ],
+          "dimensions": [
+            "stories"
+          ],
+          "references": {
+            "title": "Retenção dos stories",
+            "description": "A retenção representa a visualização de seus stories sem o usuário sair ou avançar para um story de uma outra conta (se avançar para o próximo story da sua própria conta, ele é considerado como retido). A média de retenção é a soma da retenção de todos os stories dividido pela quantidade total de publicações no período analisado.",
+            "formatting_function": "add_percentage",
+            "can_be_aggregated": false,
+            "tags": {
+              "cost": "organic",
+              "calculation": "calculated",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:retention"
+        },
+        {
+          "reference_key": "ig:replies",
+          "component": "number_v1",
+          "metrics": [
+            "replies"
+          ],
+          "dimensions": [
+            "stories"
+          ],
+          "references": {
+            "title": "Stories Total Replies",
+            "description": "Total number of people who responded to your stories.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:replies"
+        },
+        {
+          "reference_key": "ig:exits",
+          "component": "number_v1",
+          "metrics": [
+            "exits"
+          ],
+          "dimensions": [
+            "stories"
+          ],
+          "references": {
+            "title": "Taps to exit stories",
+            "description": "Número total de vezes que os usuários clicaram  para sair dos stories.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:exits"
+        },
+        {
+          "reference_key": "ig:taps_forward",
+          "component": "number_v1",
+          "metrics": [
+            "taps_forward"
+          ],
+          "dimensions": [
+            "stories"
+          ],
+          "references": {
+            "title": "Stories advance taps",
+            "description": "Advance taps represent the number of times an user tapped the right side of the screen to skip to the next stories on the queue. ",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:taps_forward"
+        },
+        {
+          "reference_key": "ig:taps_back",
+          "component": "number_v1",
+          "metrics": [
+            "taps_back"
+          ],
+          "dimensions": [
+            "stories"
+          ],
+          "references": {
+            "title": "Stories Taps Back",
+            "description": "Taps Back represents the number of times users clicked on the left side of the screen to go back to the previous story in the queue.",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "not retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "ig:taps_back"
+        }
+      ],
+      "missing_reference_keys": [],
+      "request": {
+        "integrationId": 2264770,
+        "start": "2026-04-06",
+        "end": "2026-05-05",
+        "metrics": [
+          {
+            "metrics": [
+              "views"
+            ],
+            "reference_key": "ig:views",
+            "component": "number_v1",
+            "type": "total_impressions",
+            "references": {
+              "title": "Total view (organic + paid)",
+              "description": "Total number of times your content was played or viewed. Content includes reels, posts, stories, videos, live videos, and ads.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Estimated by the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:views"
+          },
+          {
+            "metrics": [
+              "reach"
+            ],
+            "dimensions": [
+              "date"
+            ],
+            "reference_key": "ig:reach_over_time",
+            "component": "chart_v1",
+            "chart_type": "line",
+            "added_date": "2023-10-18",
+            "references": {
+              "title": "Daily reach",
+              "description": "This graph shows the daily reach value over the analyzed period.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "calculated",
+                "history": "retroactive",
+                "value": "partial value"
+              },
+              "labels": [
+                "Reach"
+              ]
+            },
+            "id": "ig:reach_over_time"
+          },
+          {
+            "metrics": [
+              "profile_views"
+            ],
+            "reference_key": "ig:profile_views",
+            "component": "number_v1",
+            "references": {
+              "title": "Profile visits",
+              "description": "Total number of users that viewed your profile.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:profile_views"
+          },
+          {
+            "metrics": [
+              "followers"
+            ],
+            "dimensions": [
+              "gender"
+            ],
+            "reference_key": "ig:followers_gender",
+            "component": "chart_v1",
+            "chart_type": "pie",
+            "references": {
+              "title": "Followers by gender",
+              "description": "This graph shows your followers, grouped by gender. Instagram only returns data considering the current number of followers at the time of generating the report, regardless of the period selected for analysis.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "value": "total value",
+                "history": "not retroactive"
+              }
+            },
+            "id": "ig:followers_gender"
+          },
+          {
+            "metrics": [
+              "followers"
+            ],
+            "dimensions": [
+              "age",
+              "gender"
+            ],
+            "reference_key": "ig:followers_gender_age",
+            "component": "chart_v1",
+            "chart_type": "bar",
+            "references": {
+              "title": "Audience by age and gender",
+              "description": "This graph displays your audience, grouped by age and gender. Instagram only returns data considering the current number of followers at the time of generating the report, regardless of the period selected for analysis.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "value": "total value",
+                "history": "not retroactive"
+              },
+              "labels": [
+                "Male",
+                "Female",
+                "Unknown"
+              ]
+            },
+            "id": "ig:followers_gender_age"
+          },
+          {
+            "reference_key": "ig:followers_count_chart",
+            "component": "chart_v1",
+            "chart_type": "line",
+            "metrics": [
+              "followers"
+            ],
+            "dimensions": [
+              "date"
+            ],
+            "references": {
+              "title": "Followers evolution",
+              "description": "This graph describes the evolution of the growth of followers on your profile over time. Instagram only provides follower data for periods when the integration was active with Reportei.",
+              "labels": [
+                "Followers"
+              ],
+              "tags": {
+                "calculation": "Passed through the network",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:followers_count_chart"
+          },
+          {
+            "reference_key": "ig:new_followers_count_chart",
+            "component": "chart_v1",
+            "chart_type": "line",
+            "metrics": [
+              "new_followers"
+            ],
+            "dimensions": [
+              "date"
+            ],
+            "references": {
+              "title": "Variation of followers over time",
+              "description": "This graph shows the variation in the number of followers of the account over the analyzed period. It is calculated by subtracting the previous day's estimated followers from the current day's estimated followers. And it considers both followers gained and followers lost. If all values return equal to zero, this may indicate that we do not have data for the analyzed period.",
+              "labels": [
+                "Follower Variation"
+              ],
+              "tags": {
+                "cost": "organic",
+                "calculation": "calculated",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:new_followers_count_chart"
+          },
+          {
+            "reference_key": "ig:online_followers_per_day",
+            "component": "chart_v1",
+            "chart_type": "bar",
+            "metrics": [
+              "online_followers"
+            ],
+            "dimensions": [
+              "date"
+            ],
+            "references": {
+              "title": "Best day for posts",
+              "description": "This chart shows, on average, which day your followers were most active on Instagram in the last 30 days. Instagram only returns 30-day retroactive data from this chart, regardless of the period analyzed in the report.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "calculated",
+                "history": "not retroactive",
+                "value": "total value"
+              }
+            },
+            "id": "ig:online_followers_per_day"
+          },
+          {
+            "reference_key": "ig:online_followers_per_hour",
+            "component": "chart_v1",
+            "chart_type": "bar",
+            "metrics": [
+              "online_followers"
+            ],
+            "dimensions": [
+              "hour"
+            ],
+            "references": {
+              "title": "Best time for posts",
+              "description": "This chart shows, on average, when your followers were most active on Instagram in the last 30 days. Instagram only returns 30-day retroactive data from this chart, regardless of the period analyzed in the report. The information is being displayed in the Pacific Standard Time Zone (PST, time zone considered in this channel's API)",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "calculated",
+                "history": "not retroactive",
+                "value": "total value"
+              }
+            },
+            "id": "ig:online_followers_per_hour"
+          },
+          {
+            "reference_key": "ig:stories_datagrid",
+            "component": "datagrid_v1",
+            "metrics": [
+              "reach",
+              "views",
+              "follows",
+              "taps_forwards",
+              "taps_back",
+              "exits",
+              "retention",
+              "answers",
+              "automatic_forward",
+              "swipe_back",
+              "swipe_down",
+              "swipe_forward",
+              "swipe_up",
+              "likes",
+              "shares",
+              "total_interactions",
+              "date"
+            ],
+            "dimensions": [
+              "stories"
+            ],
+            "sort": [
+              "-reach"
+            ],
+            "references": {
+              "title": "Stories",
+              "description": "Stories from the analyzed period that had the greatest impact on your audience. Only shared stories from public accounts are shared. It is not possible to analyze story shares data from private accounts.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "not retroactive",
+                "value": "partial value",
+                "stories_metrics": "See metrics descriptions"
+              }
+            },
+            "id": "ig:stories_datagrid"
+          },
+          {
+            "reference_key": "ig:stories_count",
+            "component": "number_v1",
+            "metrics": [
+              "count"
+            ],
+            "dimensions": [
+              "stories"
+            ],
+            "references": {
+              "title": "Stories count",
+              "description": "Total number of stories posted on the analyzed period.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:stories_count"
+          },
+          {
+            "reference_key": "ig:stories_views",
+            "component": "number_v1",
+            "metrics": [
+              "views"
+            ],
+            "dimensions": [
+              "stories"
+            ],
+            "references": {
+              "title": "Total Stories Views",
+              "description": "The number of times your stories have been viewed or played since they were posted. This metric only considers organic views.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:stories_views"
+          },
+          {
+            "reference_key": "ig:stories_impressions",
+            "component": "number_v1",
+            "metrics": [
+              "impressions"
+            ],
+            "dimensions": [
+              "stories"
+            ],
+            "references": {
+              "title": "Total Stories Impressions",
+              "description": "Total number of times the stories in the analyzed period were viewed organically.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:stories_impressions"
+          },
+          {
+            "reference_key": "ig:retention",
+            "component": "number_v1",
+            "metrics": [
+              "retention"
+            ],
+            "dimensions": [
+              "stories"
+            ],
+            "references": {
+              "title": "Retenção dos stories",
+              "description": "A retenção representa a visualização de seus stories sem o usuário sair ou avançar para um story de uma outra conta (se avançar para o próximo story da sua própria conta, ele é considerado como retido). A média de retenção é a soma da retenção de todos os stories dividido pela quantidade total de publicações no período analisado.",
+              "formatting_function": "add_percentage",
+              "can_be_aggregated": false,
+              "tags": {
+                "cost": "organic",
+                "calculation": "calculated",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:retention"
+          },
+          {
+            "reference_key": "ig:replies",
+            "component": "number_v1",
+            "metrics": [
+              "replies"
+            ],
+            "dimensions": [
+              "stories"
+            ],
+            "references": {
+              "title": "Stories Total Replies",
+              "description": "Total number of people who responded to your stories.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:replies"
+          },
+          {
+            "reference_key": "ig:exits",
+            "component": "number_v1",
+            "metrics": [
+              "exits"
+            ],
+            "dimensions": [
+              "stories"
+            ],
+            "references": {
+              "title": "Taps to exit stories",
+              "description": "Número total de vezes que os usuários clicaram  para sair dos stories.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:exits"
+          },
+          {
+            "reference_key": "ig:taps_forward",
+            "component": "number_v1",
+            "metrics": [
+              "taps_forward"
+            ],
+            "dimensions": [
+              "stories"
+            ],
+            "references": {
+              "title": "Stories advance taps",
+              "description": "Advance taps represent the number of times an user tapped the right side of the screen to skip to the next stories on the queue. ",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:taps_forward"
+          },
+          {
+            "reference_key": "ig:taps_back",
+            "component": "number_v1",
+            "metrics": [
+              "taps_back"
+            ],
+            "dimensions": [
+              "stories"
+            ],
+            "references": {
+              "title": "Stories Taps Back",
+              "description": "Taps Back represents the number of times users clicked on the left side of the screen to go back to the previous story in the queue.",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "not retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "ig:taps_back"
+          }
+        ]
+      },
+      "response": {
+        "ig:stories_count": {
+          "values": 11
+        },
+        "ig:stories_impressions": {
+          "warning": "The Story Impressions metric is only available for Stories published until 04/21/2025. For Stories after this date, Instagram switched to using the Story Views metric."
+        },
+        "ig:followers_gender": {
+          "labels": [
+            "Male",
+            "Female",
+            "Unknown"
+          ],
+          "values": [
+            {
+              "data": [
+                2955,
+                4696,
+                1130
+              ]
+            }
+          ]
+        },
+        "ig:followers_gender_age": {
+          "labels": [
+            "13-17",
+            "18-24",
+            "25-34",
+            "35-44",
+            "45-54",
+            "55-64",
+            "65+"
+          ],
+          "values": [
+            {
+              "data": [
+                23,
+                137,
+                650,
+                1015,
+                760,
+                283,
+                87
+              ]
+            },
+            {
+              "data": [
+                20,
+                226,
+                1067,
+                1627,
+                1137,
+                429,
+                190
+              ]
+            },
+            {
+              "data": [
+                20,
+                120,
+                298,
+                375,
+                233,
+                55,
+                29
+              ]
+            }
+          ]
+        },
+        "ig:online_followers_per_day": {
+          "labels": [
+            "Sun",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat"
+          ],
+          "values": [
+            {
+              "data": [
+                2466,
+                2520,
+                2549,
+                3349,
+                3359,
+                2661,
+                2602
+              ]
+            }
+          ]
+        },
+        "ig:online_followers_per_hour": {
+          "labels": [
+            "0h",
+            "1h",
+            "2h",
+            "3h",
+            "4h",
+            "5h",
+            "6h",
+            "7h",
+            "8h",
+            "9h",
+            "10h",
+            "11h",
+            "12h",
+            "13h",
+            "14h",
+            "15h",
+            "16h",
+            "17h",
+            "18h",
+            "19h",
+            "20h",
+            "21h",
+            "22h",
+            "23h"
+          ],
+          "values": [
+            {
+              "data": [
+                444,
+                834,
+                1640,
+                2173,
+                2504,
+                2696,
+                2754,
+                2873,
+                3068,
+                3079,
+                2945,
+                2904,
+                2959,
+                3076,
+                3244,
+                3300,
+                3307,
+                3288,
+                3010,
+                2342,
+                1515,
+                862,
+                528,
+                398
+              ]
+            }
+          ]
+        },
+        "ig:stories_datagrid": {
+          "values": [
+            {
+              "id": "18525230674072176",
+              "reach": 409,
+              "exits": 40,
+              "retention": 84.10757946210269,
+              "impressions": 0,
+              "views": 505,
+              "taps_forward": 368,
+              "shares": 0,
+              "total_interactions": 1,
+              "profile_visits": 2,
+              "taps_back": 7,
+              "replies": 1,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 25,
+              "swipe_up": 0,
+              "date": "2026-04-07"
+            },
+            {
+              "id": "18078880121416102",
+              "reach": 373,
+              "exits": 45,
+              "retention": 82.57372654155496,
+              "impressions": 0,
+              "views": 459,
+              "taps_forward": 327,
+              "shares": 0,
+              "total_interactions": 0,
+              "profile_visits": 1,
+              "taps_back": 30,
+              "replies": 0,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 20,
+              "swipe_up": 0,
+              "date": "2026-04-07"
+            },
+            {
+              "id": "17885566557372561",
+              "reach": 451,
+              "exits": 118,
+              "retention": 60.532150776053214,
+              "impressions": 0,
+              "views": 602,
+              "taps_forward": 332,
+              "shares": 1,
+              "total_interactions": 1,
+              "profile_visits": 6,
+              "taps_back": 11,
+              "replies": 0,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 60,
+              "swipe_up": 0,
+              "date": "2026-04-14"
+            },
+            {
+              "id": "18061591073409071",
+              "reach": 494,
+              "exits": 92,
+              "retention": 70.8502024291498,
+              "impressions": 0,
+              "views": 637,
+              "taps_forward": 332,
+              "shares": 7,
+              "total_interactions": 7,
+              "profile_visits": 5,
+              "taps_back": 12,
+              "replies": 0,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 52,
+              "swipe_up": 0,
+              "date": "2026-04-16"
+            },
+            {
+              "id": "17909632398202792",
+              "reach": 419,
+              "exits": 20,
+              "retention": 83.7708830548926,
+              "impressions": 0,
+              "views": 561,
+              "taps_forward": 359,
+              "shares": 0,
+              "total_interactions": 1,
+              "profile_visits": 2,
+              "taps_back": 3,
+              "replies": 0,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 48,
+              "swipe_up": 0,
+              "date": "2026-04-24"
+            },
+            {
+              "id": "18523005508077057",
+              "reach": 403,
+              "exits": 18,
+              "retention": 93.54838709677419,
+              "impressions": 0,
+              "views": 531,
+              "taps_forward": 410,
+              "shares": 0,
+              "total_interactions": 3,
+              "profile_visits": 0,
+              "taps_back": 64,
+              "replies": 0,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 8,
+              "swipe_up": 0,
+              "date": "2026-04-24"
+            },
+            {
+              "id": "17878127412434803",
+              "reach": 400,
+              "exits": 6,
+              "retention": 97.25,
+              "impressions": 0,
+              "views": 484,
+              "taps_forward": 416,
+              "shares": 0,
+              "total_interactions": 3,
+              "profile_visits": 0,
+              "taps_back": 39,
+              "replies": 0,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 5,
+              "swipe_up": 0,
+              "date": "2026-04-24"
+            },
+            {
+              "id": "18069058034325406",
+              "reach": 393,
+              "exits": 15,
+              "retention": 95.41984732824427,
+              "impressions": 0,
+              "views": 472,
+              "taps_forward": 404,
+              "shares": 0,
+              "total_interactions": 3,
+              "profile_visits": 0,
+              "taps_back": 29,
+              "replies": 0,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 3,
+              "swipe_up": 0,
+              "date": "2026-04-24"
+            },
+            {
+              "id": "18059562668473158",
+              "reach": 375,
+              "exits": 47,
+              "retention": 84.53333333333333,
+              "impressions": 0,
+              "views": 475,
+              "taps_forward": 358,
+              "shares": 0,
+              "total_interactions": 7,
+              "profile_visits": 3,
+              "taps_back": 36,
+              "replies": 2,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 11,
+              "swipe_up": 0,
+              "date": "2026-04-24"
+            },
+            {
+              "id": "17883066996396134",
+              "reach": 363,
+              "exits": 86,
+              "retention": 62.8099173553719,
+              "impressions": 0,
+              "views": 456,
+              "taps_forward": 274,
+              "shares": 0,
+              "total_interactions": 5,
+              "profile_visits": 5,
+              "taps_back": 1,
+              "replies": 0,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 49,
+              "swipe_up": 0,
+              "date": "2026-04-28"
+            },
+            {
+              "id": "18150600661467169",
+              "reach": 436,
+              "exits": 82,
+              "retention": 66.97247706422019,
+              "impressions": 0,
+              "views": 578,
+              "taps_forward": 374,
+              "shares": 1,
+              "total_interactions": 11,
+              "profile_visits": 5,
+              "taps_back": 10,
+              "replies": 1,
+              "automatic_forward": 0,
+              "swipe_back": 0,
+              "swipe_down": 0,
+              "swipe_forward": 62,
+              "swipe_up": 0,
+              "date": "2026-04-29"
+            }
+          ],
+          "type": "story_datagrid"
+        },
+        "ig:profile_views": {
+          "values": 797,
+          "trend": {
+            "data": []
+          }
+        },
+        "ig:stories_views": {
+          "values": 5760
+        },
+        "ig:replies": {
+          "values": 4
+        },
+        "ig:exits": {
+          "values": 569
+        },
+        "ig:taps_forward": {
+          "values": 3954
+        },
+        "ig:taps_back": {
+          "values": 242
+        },
+        "ig:retention": {
+          "values": 79.80513728963685
+        },
+        "ig:views": {
+          "values": 33703,
+          "trend": {
+            "data": []
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "ig:reach_over_time": {
+          "labels": [
+            "2026-04-06T07:00:00+0000",
+            "2026-04-07T07:00:00+0000",
+            "2026-04-08T07:00:00+0000",
+            "2026-04-09T07:00:00+0000",
+            "2026-04-10T07:00:00+0000",
+            "2026-04-11T07:00:00+0000",
+            "2026-04-12T07:00:00+0000",
+            "2026-04-13T07:00:00+0000",
+            "2026-04-14T07:00:00+0000",
+            "2026-04-15T07:00:00+0000",
+            "2026-04-16T07:00:00+0000",
+            "2026-04-17T07:00:00+0000",
+            "2026-04-18T07:00:00+0000",
+            "2026-04-19T07:00:00+0000",
+            "2026-04-20T07:00:00+0000",
+            "2026-04-21T07:00:00+0000",
+            "2026-04-22T07:00:00+0000",
+            "2026-04-23T07:00:00+0000",
+            "2026-04-24T07:00:00+0000",
+            "2026-04-25T07:00:00+0000",
+            "2026-04-26T07:00:00+0000",
+            "2026-04-27T07:00:00+0000",
+            "2026-04-28T07:00:00+0000",
+            "2026-04-29T07:00:00+0000",
+            "2026-04-30T07:00:00+0000",
+            "2026-05-01T07:00:00+0000",
+            "2026-05-02T07:00:00+0000",
+            "2026-05-03T07:00:00+0000",
+            "2026-05-04T07:00:00+0000",
+            "2026-05-05T07:00:00+0000"
+          ],
+          "values": [
+            {
+              "name": "",
+              "data": [
+                559,
+                634,
+                439,
+                786,
+                277,
+                123,
+                102,
+                96,
+                474,
+                461,
+                485,
+                468,
+                426,
+                133,
+                429,
+                124,
+                111,
+                544,
+                483,
+                485,
+                227,
+                118,
+                389,
+                568,
+                611,
+                177,
+                79,
+                639,
+                227,
+                341
+              ]
+            }
+          ]
+        },
+        "ig:new_followers_count_chart": {
+          "labels": [
+            "2026-04-06T00:00:00.000Z",
+            "2026-04-07T00:00:00.000Z",
+            "2026-04-08T00:00:00.000Z",
+            "2026-04-09T00:00:00.000Z",
+            "2026-04-10T00:00:00.000Z",
+            "2026-04-11T00:00:00.000Z",
+            "2026-04-12T00:00:00.000Z",
+            "2026-04-13T00:00:00.000Z",
+            "2026-04-14T00:00:00.000Z",
+            "2026-04-15T00:00:00.000Z",
+            "2026-04-16T00:00:00.000Z",
+            "2026-04-17T00:00:00.000Z",
+            "2026-04-18T00:00:00.000Z",
+            "2026-04-19T00:00:00.000Z",
+            "2026-04-20T00:00:00.000Z",
+            "2026-04-21T00:00:00.000Z",
+            "2026-04-22T00:00:00.000Z",
+            "2026-04-23T00:00:00.000Z",
+            "2026-04-24T00:00:00.000Z",
+            "2026-04-25T00:00:00.000Z",
+            "2026-04-26T00:00:00.000Z",
+            "2026-04-27T00:00:00.000Z",
+            "2026-04-28T00:00:00.000Z",
+            "2026-04-29T00:00:00.000Z",
+            "2026-04-30T00:00:00.000Z",
+            "2026-05-01T00:00:00.000Z",
+            "2026-05-02T00:00:00.000Z",
+            "2026-05-03T00:00:00.000Z",
+            "2026-05-04T00:00:00.000Z",
+            "2026-05-05T00:00:00.000Z"
+          ],
+          "values": [
+            {
+              "data": [
+                2,
+                -2,
+                1,
+                -1,
+                -2,
+                2,
+                -2,
+                1,
+                -2,
+                1,
+                -5,
+                2,
+                3,
+                -4,
+                -4,
+                -4,
+                -2,
+                -2,
+                0,
+                -3,
+                -3,
+                1,
+                3,
+                0,
+                1,
+                -5,
+                -3,
+                -1,
+                2,
+                -3
+              ]
+            }
+          ]
+        },
+        "ig:followers_count_chart": {
+          "labels": [
+            "2026-04-06T00:00:00.000Z",
+            "2026-04-07T00:00:00.000Z",
+            "2026-04-08T00:00:00.000Z",
+            "2026-04-09T00:00:00.000Z",
+            "2026-04-10T00:00:00.000Z",
+            "2026-04-11T00:00:00.000Z",
+            "2026-04-12T00:00:00.000Z",
+            "2026-04-13T00:00:00.000Z",
+            "2026-04-14T00:00:00.000Z",
+            "2026-04-15T00:00:00.000Z",
+            "2026-04-16T00:00:00.000Z",
+            "2026-04-17T00:00:00.000Z",
+            "2026-04-18T00:00:00.000Z",
+            "2026-04-19T00:00:00.000Z",
+            "2026-04-20T00:00:00.000Z",
+            "2026-04-21T00:00:00.000Z",
+            "2026-04-22T00:00:00.000Z",
+            "2026-04-23T00:00:00.000Z",
+            "2026-04-24T00:00:00.000Z",
+            "2026-04-25T00:00:00.000Z",
+            "2026-04-26T00:00:00.000Z",
+            "2026-04-27T00:00:00.000Z",
+            "2026-04-28T00:00:00.000Z",
+            "2026-04-29T00:00:00.000Z",
+            "2026-04-30T00:00:00.000Z",
+            "2026-05-01T00:00:00.000Z",
+            "2026-05-02T00:00:00.000Z",
+            "2026-05-03T00:00:00.000Z",
+            "2026-05-04T00:00:00.000Z",
+            "2026-05-05T00:00:00.000Z"
+          ],
+          "values": [
+            {
+              "data": [
+                9906,
+                9904,
+                9905,
+                9904,
+                9902,
+                9904,
+                9902,
+                9903,
+                9901,
+                9902,
+                9897,
+                9899,
+                9902,
+                9898,
+                9894,
+                9890,
+                9888,
+                9886,
+                9886,
+                9883,
+                9880,
+                9881,
+                9884,
+                9884,
+                9885,
+                9880,
+                9877,
+                9876,
+                9878,
+                9875
+              ]
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "slug": "tiktok",
+      "label": "TikTok",
+      "integration": {
+        "id": 2342977,
+        "source_id": "bff4a856-0342-5396-803e-1f078ce1c1ea",
+        "name": "RAY EL VOX",
+        "slug": "tiktok",
+        "status": "active",
+        "project_id": 509099,
+        "project_name": "RAY EL VOX",
+        "created_at": "2024-11-06T15:33:30-03:00",
+        "updated_at": "2024-11-06T15:33:30-03:00"
+      },
+      "requested_reference_keys": [
+        "tiktok:views",
+        "tiktok:likes",
+        "tiktok:comments",
+        "tiktok:share",
+        "tiktok:video_count",
+        "tiktok:follows"
+      ],
+      "metrics": [
+        {
+          "reference_key": "tiktok:views",
+          "component": "number_v1",
+          "dimensions": [
+            "video"
+          ],
+          "metrics": [
+            "view_count"
+          ],
+          "type": [
+            "total_impressions"
+          ],
+          "references": {
+            "title": "Total views",
+            "description": "Total accumulated views of videos published during the analyzed period. Each video's view count reflects its total lifetime views since publication — not views that occurred within the period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+            "tags": {
+              "cost": "mixed",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "total value"
+            }
+          },
+          "id": "tiktok:views"
+        },
+        {
+          "reference_key": "tiktok:likes",
+          "component": "number_v1",
+          "dimensions": [
+            "video"
+          ],
+          "metrics": [
+            "like_count"
+          ],
+          "type": [
+            "total_likes",
+            "total_posts_engagement"
+          ],
+          "references": {
+            "title": "Total likes",
+            "description": "Total number of likes received on your account's videos during the analyzed period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+            "tags": {
+              "cost": "mixed",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "tiktok:likes"
+        },
+        {
+          "reference_key": "tiktok:comments",
+          "component": "number_v1",
+          "dimensions": [
+            "video"
+          ],
+          "metrics": [
+            "comment_count"
+          ],
+          "type": [
+            "total_comments",
+            "total_posts_engagement"
+          ],
+          "references": {
+            "title": "Comments",
+            "description": "Total number of comments received on your account's videos during the analyzed period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+            "tags": {
+              "cost": "mixed",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "tiktok:comments"
+        },
+        {
+          "reference_key": "tiktok:share",
+          "component": "number_v1",
+          "dimensions": [
+            "video"
+          ],
+          "metrics": [
+            "share_count"
+          ],
+          "type": [
+            "total_posts_share",
+            "total_posts_engagement"
+          ],
+          "references": {
+            "title": "Total Shares",
+            "description": "Total number of shares of your account's videos during the analyzed period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+            "tags": {
+              "cost": "mixed",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "tiktok:share"
+        },
+        {
+          "reference_key": "tiktok:video_count",
+          "component": "number_v1",
+          "dimensions": [
+            "video"
+          ],
+          "metrics": [
+            "video_count"
+          ],
+          "type": "total_posts_count",
+          "references": {
+            "title": "Number of Videos",
+            "description": "Number of videos associated with your account during the analyzed period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+            "tags": {
+              "cost": "mixed",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "tiktok:video_count"
+        },
+        {
+          "reference_key": "tiktok:follows",
+          "component": "number_v1",
+          "dimensions": [
+            "video"
+          ],
+          "metrics": [
+            "followers"
+          ],
+          "added_date": "2024-08-01",
+          "references": {
+            "title": "Follows",
+            "description": "Total number of followers on your account",
+            "tags": {
+              "cost": "organic",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "total value"
+            }
+          },
+          "id": "tiktok:follows"
+        }
+      ],
+      "missing_reference_keys": [],
+      "request": {
+        "integrationId": 2342977,
+        "start": "2026-04-06",
+        "end": "2026-05-05",
+        "metrics": [
+          {
+            "reference_key": "tiktok:views",
+            "component": "number_v1",
+            "dimensions": [
+              "video"
+            ],
+            "metrics": [
+              "view_count"
+            ],
+            "type": [
+              "total_impressions"
+            ],
+            "references": {
+              "title": "Total views",
+              "description": "Total accumulated views of videos published during the analyzed period. Each video's view count reflects its total lifetime views since publication — not views that occurred within the period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+              "tags": {
+                "cost": "mixed",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "total value"
+              }
+            },
+            "id": "tiktok:views"
+          },
+          {
+            "reference_key": "tiktok:likes",
+            "component": "number_v1",
+            "dimensions": [
+              "video"
+            ],
+            "metrics": [
+              "like_count"
+            ],
+            "type": [
+              "total_likes",
+              "total_posts_engagement"
+            ],
+            "references": {
+              "title": "Total likes",
+              "description": "Total number of likes received on your account's videos during the analyzed period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+              "tags": {
+                "cost": "mixed",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "tiktok:likes"
+          },
+          {
+            "reference_key": "tiktok:comments",
+            "component": "number_v1",
+            "dimensions": [
+              "video"
+            ],
+            "metrics": [
+              "comment_count"
+            ],
+            "type": [
+              "total_comments",
+              "total_posts_engagement"
+            ],
+            "references": {
+              "title": "Comments",
+              "description": "Total number of comments received on your account's videos during the analyzed period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+              "tags": {
+                "cost": "mixed",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "tiktok:comments"
+          },
+          {
+            "reference_key": "tiktok:share",
+            "component": "number_v1",
+            "dimensions": [
+              "video"
+            ],
+            "metrics": [
+              "share_count"
+            ],
+            "type": [
+              "total_posts_share",
+              "total_posts_engagement"
+            ],
+            "references": {
+              "title": "Total Shares",
+              "description": "Total number of shares of your account's videos during the analyzed period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+              "tags": {
+                "cost": "mixed",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "tiktok:share"
+          },
+          {
+            "reference_key": "tiktok:video_count",
+            "component": "number_v1",
+            "dimensions": [
+              "video"
+            ],
+            "metrics": [
+              "video_count"
+            ],
+            "type": "total_posts_count",
+            "references": {
+              "title": "Number of Videos",
+              "description": "Number of videos associated with your account during the analyzed period. May include content used in ad campaigns if they also appear in TikTok Studio.",
+              "tags": {
+                "cost": "mixed",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "tiktok:video_count"
+          },
+          {
+            "reference_key": "tiktok:follows",
+            "component": "number_v1",
+            "dimensions": [
+              "video"
+            ],
+            "metrics": [
+              "followers"
+            ],
+            "added_date": "2024-08-01",
+            "references": {
+              "title": "Follows",
+              "description": "Total number of followers on your account",
+              "tags": {
+                "cost": "organic",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "total value"
+              }
+            },
+            "id": "tiktok:follows"
+          }
+        ]
+      },
+      "response": {
+        "tiktok:views": {
+          "values": 8492
+        },
+        "tiktok:likes": {
+          "values": 119
+        },
+        "tiktok:comments": {
+          "values": 0
+        },
+        "tiktok:share": {
+          "values": 15
+        },
+        "tiktok:video_count": {
+          "values": 15
+        },
+        "tiktok:follows": {
+          "values": 1571
+        }
+      },
+      "error": null
+    },
+    {
+      "slug": "youtube",
+      "label": "YouTube",
+      "integration": {
+        "id": 1524273,
+        "source_id": "UCLPQPey6kPTQ7VFuRkktukw",
+        "name": "RAY EL VOX",
+        "slug": "youtube",
+        "status": "active",
+        "project_id": 509099,
+        "project_name": "RAY EL VOX",
+        "created_at": "2023-08-30T13:13:06-03:00",
+        "updated_at": "2023-08-30T13:13:06-03:00"
+      },
+      "requested_reference_keys": [
+        "youtube:views",
+        "youtube:likes",
+        "youtube:comments",
+        "youtube:shares",
+        "youtube:impressions",
+        "youtube:ctr",
+        "youtube:estimated_minutes_watched",
+        "youtube:average_view_duration",
+        "youtube:average_view_percentage",
+        "youtube:subscribers_gained",
+        "youtube:subscribers_lost",
+        "youtube:subscribers_variation",
+        "youtube:subscribers_by_day",
+        "youtube:viewers_by_age_and_gender",
+        "youtube:views_by_gender",
+        "youtube:views_by_age"
+      ],
+      "metrics": [
+        {
+          "reference_key": "youtube:views",
+          "component": "number_v1",
+          "metrics": [
+            "views"
+          ],
+          "type": [
+            "total_impressions"
+          ],
+          "references": {
+            "title": "Views (Total)",
+            "description": "Total number of times the channel's videos, shorts, or live streams were viewed during the reporting period.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:views"
+        },
+        {
+          "reference_key": "youtube:likes",
+          "component": "number_v1",
+          "metrics": [
+            "likes"
+          ],
+          "type": [
+            "total_likes",
+            "total_posts_engagement"
+          ],
+          "references": {
+            "title": "Likes (Total)",
+            "description": "Total number of 'likes' received on the channel's videos, shorts, or live streams during the reporting period.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:likes"
+        },
+        {
+          "reference_key": "youtube:comments",
+          "component": "number_v1",
+          "metrics": [
+            "comments"
+          ],
+          "type": [
+            "total_comments",
+            "total_posts_engagement"
+          ],
+          "references": {
+            "title": "Comments (Total)",
+            "description": "Total number of comments received on the channel's videos, shorts, or live streams during the reporting period.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:comments"
+        },
+        {
+          "reference_key": "youtube:shares",
+          "component": "number_v1",
+          "metrics": [
+            "shares"
+          ],
+          "type": [
+            "total_posts_share",
+            "total_posts_engagement"
+          ],
+          "references": {
+            "title": "Shares (Total)",
+            "description": "Total number of times the channel's videos, shorts, or live streams were shared by viewers during the reporting period.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:shares"
+        },
+        {
+          "reference_key": "youtube:impressions",
+          "component": "number_v1",
+          "metrics": [
+            "adImpressions"
+          ],
+          "added_date": "2024-05-27",
+          "references": {
+            "title": "Impressions",
+            "description": "How many times your video thumbnails were shown to viewers. This only includes impressions on YouTube, not external websites or apps.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:impressions"
+        },
+        {
+          "reference_key": "youtube:ctr",
+          "component": "number_v1",
+          "ytb_is_calculated": true,
+          "metrics": [
+            "ctr"
+          ],
+          "added_date": "2024-05-27",
+          "references": {
+            "title": "CTR",
+            "description": "Views per impressions shown. It measures how often viewers watched a video after seeing an impression.",
+            "formatting_function": "add_percentage",
+            "can_be_aggregated": false,
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "calculated",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:ctr"
+        },
+        {
+          "reference_key": "youtube:estimated_minutes_watched",
+          "component": "number_v1",
+          "metrics": [
+            "estimatedMinutesWatched"
+          ],
+          "references": {
+            "title": "Estimated minutes watched (by day)",
+            "description": "Total time (in hours) that viewers watched the channel's videos, shorts, or live streams.",
+            "formatting_function": "minutes_to_hours",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:estimated_minutes_watched"
+        },
+        {
+          "reference_key": "youtube:average_view_duration",
+          "component": "number_v1",
+          "dimensions": [
+            "channel"
+          ],
+          "metrics": [
+            "averageViewDuration"
+          ],
+          "references": {
+            "title": "Average view duration",
+            "description": "The average length, in seconds, of video playbacks.",
+            "formatting_function": "seconds_to_minutes",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:average_view_duration"
+        },
+        {
+          "reference_key": "youtube:average_view_percentage",
+          "component": "number_v1",
+          "dimensions": [
+            "channel"
+          ],
+          "metrics": [
+            "averageViewPercentage"
+          ],
+          "references": {
+            "title": "Average view percentage",
+            "description": "Average percentage of playback of videos watched on the channel, during the analyzed period.",
+            "formatting_function": "add_percentage",
+            "can_be_aggregated": false,
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:average_view_percentage"
+        },
+        {
+          "reference_key": "youtube:subscribers_gained",
+          "component": "number_v1",
+          "metrics": [
+            "subscribersGained"
+          ],
+          "type": [
+            "new_followers"
+          ],
+          "references": {
+            "title": "Subscribers gained (by day)",
+            "description": "Total number of new subscribers acquired from the channel's videos, shorts, or live streams during the reporting period.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:subscribers_gained"
+        },
+        {
+          "reference_key": "youtube:subscribers_lost",
+          "component": "number_v1",
+          "metrics": [
+            "subscribersLost"
+          ],
+          "references": {
+            "title": "Subscribers Lost (Total)",
+            "description": "Total number of subscribers who unfollowed the channel, counted from the channel's videos, shorts, or live streams during the reporting period.",
+            "diff_type": "positive_bad",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:subscribers_lost"
+        },
+        {
+          "reference_key": "youtube:subscribers_variation",
+          "component": "number_v1",
+          "ytb_is_calculated": true,
+          "metrics": [
+            "subscribers_variation"
+          ],
+          "references": {
+            "title": "Subscribers in the period",
+            "description": "Net change in subscribers. The difference between the number of new subscribers and the number of subscribers lost in the analyzed period.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "calculated",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:subscribers_variation"
+        },
+        {
+          "reference_key": "youtube:subscribers_by_day",
+          "component": "chart_v1",
+          "chart_type": "line",
+          "metrics": [
+            "subscribersGained"
+          ],
+          "dimensions": [
+            "day"
+          ],
+          "references": {
+            "title": "Subscribers gained by day",
+            "description": "The difference in the total number of subscribers, as a result of subtracting the number of lost subscribers from the number of new subscribers for the analyzed period.",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            },
+            "labels": [
+              "New subscribers"
+            ]
+          },
+          "id": "youtube:subscribers_by_day"
+        },
+        {
+          "reference_key": "youtube:viewers_by_age_and_gender",
+          "component": "chart_v1",
+          "chart_type": "bar",
+          "metrics": [
+            "viewerPercentage"
+          ],
+          "dimensions": [
+            "ageGroup",
+            "gender"
+          ],
+          "references": {
+            "title": "% Viewers by Age and Gender",
+            "description": "This graph shows the percentage of viewers who watched the channel's videos, grouped by age and gender.",
+            "tooltip": [
+              {
+                "formatting_function": "add_percentage"
+              },
+              {
+                "formatting_function": "add_percentage"
+              }
+            ],
+            "labels_formatting_function": "capitalize",
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            },
+            "labels": [
+              "Female",
+              "Male",
+              "Unknown"
+            ]
+          },
+          "id": "youtube:viewers_by_age_and_gender"
+        },
+        {
+          "reference_key": "youtube:views_by_gender",
+          "component": "chart_v1",
+          "chart_type": "bar",
+          "metrics": [
+            "viewerPercentage"
+          ],
+          "dimensions": [
+            "gender"
+          ],
+          "added_date": "2023-05-05",
+          "references": {
+            "title": "Viewer percentage by gender",
+            "description": "This graph allows you to check the percentage of views of ad videos, grouped by genre.",
+            "tooltip": [
+              {
+                "formatting_function": "add_percentage"
+              }
+            ],
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:views_by_gender"
+        },
+        {
+          "reference_key": "youtube:views_by_age",
+          "component": "chart_v1",
+          "chart_type": "bar",
+          "metrics": [
+            "viewerPercentage"
+          ],
+          "dimensions": [
+            "ageGroup"
+          ],
+          "added_date": "2023-05-05",
+          "references": {
+            "title": "Viewer percentage by age group",
+            "description": "This graph allows you to check the percentage of views of ad videos, grouped by age group.",
+            "tooltip": [
+              {
+                "formatting_function": "add_percentage"
+              }
+            ],
+            "tags": {
+              "cost": "organic + paid",
+              "calculation": "Passed through the network",
+              "history": "retroactive",
+              "value": "partial value"
+            }
+          },
+          "id": "youtube:views_by_age"
+        }
+      ],
+      "missing_reference_keys": [],
+      "request": {
+        "integrationId": 1524273,
+        "start": "2026-04-06",
+        "end": "2026-05-05",
+        "metrics": [
+          {
+            "reference_key": "youtube:views",
+            "component": "number_v1",
+            "metrics": [
+              "views"
+            ],
+            "type": [
+              "total_impressions"
+            ],
+            "references": {
+              "title": "Views (Total)",
+              "description": "Total number of times the channel's videos, shorts, or live streams were viewed during the reporting period.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:views"
+          },
+          {
+            "reference_key": "youtube:likes",
+            "component": "number_v1",
+            "metrics": [
+              "likes"
+            ],
+            "type": [
+              "total_likes",
+              "total_posts_engagement"
+            ],
+            "references": {
+              "title": "Likes (Total)",
+              "description": "Total number of 'likes' received on the channel's videos, shorts, or live streams during the reporting period.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:likes"
+          },
+          {
+            "reference_key": "youtube:comments",
+            "component": "number_v1",
+            "metrics": [
+              "comments"
+            ],
+            "type": [
+              "total_comments",
+              "total_posts_engagement"
+            ],
+            "references": {
+              "title": "Comments (Total)",
+              "description": "Total number of comments received on the channel's videos, shorts, or live streams during the reporting period.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:comments"
+          },
+          {
+            "reference_key": "youtube:shares",
+            "component": "number_v1",
+            "metrics": [
+              "shares"
+            ],
+            "type": [
+              "total_posts_share",
+              "total_posts_engagement"
+            ],
+            "references": {
+              "title": "Shares (Total)",
+              "description": "Total number of times the channel's videos, shorts, or live streams were shared by viewers during the reporting period.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:shares"
+          },
+          {
+            "reference_key": "youtube:impressions",
+            "component": "number_v1",
+            "metrics": [
+              "adImpressions"
+            ],
+            "added_date": "2024-05-27",
+            "references": {
+              "title": "Impressions",
+              "description": "How many times your video thumbnails were shown to viewers. This only includes impressions on YouTube, not external websites or apps.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:impressions"
+          },
+          {
+            "reference_key": "youtube:ctr",
+            "component": "number_v1",
+            "ytb_is_calculated": true,
+            "metrics": [
+              "ctr"
+            ],
+            "added_date": "2024-05-27",
+            "references": {
+              "title": "CTR",
+              "description": "Views per impressions shown. It measures how often viewers watched a video after seeing an impression.",
+              "formatting_function": "add_percentage",
+              "can_be_aggregated": false,
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "calculated",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:ctr"
+          },
+          {
+            "reference_key": "youtube:estimated_minutes_watched",
+            "component": "number_v1",
+            "metrics": [
+              "estimatedMinutesWatched"
+            ],
+            "references": {
+              "title": "Estimated minutes watched (by day)",
+              "description": "Total time (in hours) that viewers watched the channel's videos, shorts, or live streams.",
+              "formatting_function": "minutes_to_hours",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:estimated_minutes_watched"
+          },
+          {
+            "reference_key": "youtube:average_view_duration",
+            "component": "number_v1",
+            "dimensions": [
+              "channel"
+            ],
+            "metrics": [
+              "averageViewDuration"
+            ],
+            "references": {
+              "title": "Average view duration",
+              "description": "The average length, in seconds, of video playbacks.",
+              "formatting_function": "seconds_to_minutes",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:average_view_duration"
+          },
+          {
+            "reference_key": "youtube:average_view_percentage",
+            "component": "number_v1",
+            "dimensions": [
+              "channel"
+            ],
+            "metrics": [
+              "averageViewPercentage"
+            ],
+            "references": {
+              "title": "Average view percentage",
+              "description": "Average percentage of playback of videos watched on the channel, during the analyzed period.",
+              "formatting_function": "add_percentage",
+              "can_be_aggregated": false,
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:average_view_percentage"
+          },
+          {
+            "reference_key": "youtube:subscribers_gained",
+            "component": "number_v1",
+            "metrics": [
+              "subscribersGained"
+            ],
+            "type": [
+              "new_followers"
+            ],
+            "references": {
+              "title": "Subscribers gained (by day)",
+              "description": "Total number of new subscribers acquired from the channel's videos, shorts, or live streams during the reporting period.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:subscribers_gained"
+          },
+          {
+            "reference_key": "youtube:subscribers_lost",
+            "component": "number_v1",
+            "metrics": [
+              "subscribersLost"
+            ],
+            "references": {
+              "title": "Subscribers Lost (Total)",
+              "description": "Total number of subscribers who unfollowed the channel, counted from the channel's videos, shorts, or live streams during the reporting period.",
+              "diff_type": "positive_bad",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:subscribers_lost"
+          },
+          {
+            "reference_key": "youtube:subscribers_variation",
+            "component": "number_v1",
+            "ytb_is_calculated": true,
+            "metrics": [
+              "subscribers_variation"
+            ],
+            "references": {
+              "title": "Subscribers in the period",
+              "description": "Net change in subscribers. The difference between the number of new subscribers and the number of subscribers lost in the analyzed period.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "calculated",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:subscribers_variation"
+          },
+          {
+            "reference_key": "youtube:subscribers_by_day",
+            "component": "chart_v1",
+            "chart_type": "line",
+            "metrics": [
+              "subscribersGained"
+            ],
+            "dimensions": [
+              "day"
+            ],
+            "references": {
+              "title": "Subscribers gained by day",
+              "description": "The difference in the total number of subscribers, as a result of subtracting the number of lost subscribers from the number of new subscribers for the analyzed period.",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              },
+              "labels": [
+                "New subscribers"
+              ]
+            },
+            "id": "youtube:subscribers_by_day"
+          },
+          {
+            "reference_key": "youtube:viewers_by_age_and_gender",
+            "component": "chart_v1",
+            "chart_type": "bar",
+            "metrics": [
+              "viewerPercentage"
+            ],
+            "dimensions": [
+              "ageGroup",
+              "gender"
+            ],
+            "references": {
+              "title": "% Viewers by Age and Gender",
+              "description": "This graph shows the percentage of viewers who watched the channel's videos, grouped by age and gender.",
+              "tooltip": [
+                {
+                  "formatting_function": "add_percentage"
+                },
+                {
+                  "formatting_function": "add_percentage"
+                }
+              ],
+              "labels_formatting_function": "capitalize",
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              },
+              "labels": [
+                "Female",
+                "Male",
+                "Unknown"
+              ]
+            },
+            "id": "youtube:viewers_by_age_and_gender"
+          },
+          {
+            "reference_key": "youtube:views_by_gender",
+            "component": "chart_v1",
+            "chart_type": "bar",
+            "metrics": [
+              "viewerPercentage"
+            ],
+            "dimensions": [
+              "gender"
+            ],
+            "added_date": "2023-05-05",
+            "references": {
+              "title": "Viewer percentage by gender",
+              "description": "This graph allows you to check the percentage of views of ad videos, grouped by genre.",
+              "tooltip": [
+                {
+                  "formatting_function": "add_percentage"
+                }
+              ],
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:views_by_gender"
+          },
+          {
+            "reference_key": "youtube:views_by_age",
+            "component": "chart_v1",
+            "chart_type": "bar",
+            "metrics": [
+              "viewerPercentage"
+            ],
+            "dimensions": [
+              "ageGroup"
+            ],
+            "added_date": "2023-05-05",
+            "references": {
+              "title": "Viewer percentage by age group",
+              "description": "This graph allows you to check the percentage of views of ad videos, grouped by age group.",
+              "tooltip": [
+                {
+                  "formatting_function": "add_percentage"
+                }
+              ],
+              "tags": {
+                "cost": "organic + paid",
+                "calculation": "Passed through the network",
+                "history": "retroactive",
+                "value": "partial value"
+              }
+            },
+            "id": "youtube:views_by_age"
+          }
+        ]
+      },
+      "response": {
+        "youtube:impressions": {
+          "exception": "This metric cannot be displayed due to insufficient permission. Remove and reconnect your YouTube account on the integrations page."
+        },
+        "youtube:ctr": {
+          "exception": "This metric cannot be displayed due to insufficient permission. Remove and reconnect your YouTube account on the integrations page."
+        },
+        "youtube:subscribers_by_day": {
+          "values": [
+            {
+              "data": [
+                0,
+                0,
+                3,
+                1,
+                3,
+                2,
+                1,
+                0,
+                0,
+                3,
+                3,
+                1,
+                3,
+                0,
+                0,
+                3,
+                0,
+                3,
+                3,
+                1,
+                0,
+                2,
+                1,
+                4,
+                2,
+                1,
+                1,
+                5,
+                2
+              ]
+            }
+          ],
+          "labels": [
+            "2026-04-06",
+            "2026-04-07",
+            "2026-04-08",
+            "2026-04-09",
+            "2026-04-10",
+            "2026-04-11",
+            "2026-04-12",
+            "2026-04-13",
+            "2026-04-14",
+            "2026-04-15",
+            "2026-04-16",
+            "2026-04-17",
+            "2026-04-18",
+            "2026-04-19",
+            "2026-04-20",
+            "2026-04-21",
+            "2026-04-22",
+            "2026-04-23",
+            "2026-04-24",
+            "2026-04-25",
+            "2026-04-26",
+            "2026-04-27",
+            "2026-04-28",
+            "2026-04-29",
+            "2026-04-30",
+            "2026-05-01",
+            "2026-05-02",
+            "2026-05-03",
+            "2026-05-04"
+          ]
+        },
+        "youtube:views_by_gender": {
+          "values": [
+            {
+              "data": [
+                68.4,
+                31.6
+              ]
+            }
+          ],
+          "labels": [
+            "female",
+            "male"
+          ]
+        },
+        "youtube:views_by_age": {
+          "values": [
+            {
+              "data": [
+                22.6,
+                1.2,
+                27.3,
+                35.5,
+                12.6,
+                0.8
+              ]
+            }
+          ],
+          "labels": [
+            "age13-17",
+            "age18-24",
+            "age25-34",
+            "age35-44",
+            "age45-54",
+            "age55-64"
+          ]
+        },
+        "youtube:viewers_by_age_and_gender": {
+          "labels": [
+            "13-17",
+            "18-24",
+            "25-34",
+            "35-44",
+            "45-54",
+            "55-64"
+          ],
+          "values": [
+            {
+              "data": [
+                15.4,
+                1.1,
+                19.4,
+                23.1,
+                11,
+                0.8
+              ],
+              "name": "female"
+            },
+            {
+              "data": [
+                7.5,
+                0.2,
+                8.2,
+                11.9,
+                1.6,
+                0
+              ],
+              "name": "male"
+            }
+          ]
+        },
+        "youtube:views": {
+          "values": 25353,
+          "trend": {
+            "data": [
+              640,
+              426,
+              582,
+              576,
+              487,
+              609,
+              612,
+              681,
+              759,
+              1169,
+              818,
+              839,
+              1216,
+              498,
+              1082,
+              479,
+              578,
+              1075,
+              680,
+              477,
+              899,
+              972,
+              1241,
+              2274,
+              1070,
+              650,
+              736,
+              1973,
+              1255
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "youtube:likes": {
+          "values": 197,
+          "trend": {
+            "data": [
+              5,
+              0,
+              11,
+              1,
+              7,
+              5,
+              5,
+              10,
+              6,
+              12,
+              16,
+              3,
+              12,
+              3,
+              5,
+              3,
+              4,
+              3,
+              14,
+              4,
+              10,
+              2,
+              9,
+              3,
+              11,
+              5,
+              5,
+              16,
+              7
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "youtube:comments": {
+          "values": 27,
+          "trend": {
+            "data": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              4,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              9,
+              0,
+              1,
+              4,
+              0,
+              1,
+              1,
+              0
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "youtube:shares": {
+          "values": 98,
+          "trend": {
+            "data": [
+              3,
+              4,
+              2,
+              2,
+              1,
+              1,
+              4,
+              4,
+              6,
+              11,
+              5,
+              3,
+              2,
+              0,
+              4,
+              2,
+              3,
+              2,
+              4,
+              4,
+              4,
+              6,
+              2,
+              6,
+              1,
+              1,
+              0,
+              1,
+              10
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "youtube:estimated_minutes_watched": {
+          "values": 5634,
+          "trend": {
+            "data": [
+              134,
+              102,
+              137,
+              144,
+              116,
+              142,
+              147,
+              170,
+              181,
+              261,
+              224,
+              169,
+              182,
+              135,
+              172,
+              110,
+              175,
+              198,
+              182,
+              93,
+              205,
+              239,
+              355,
+              505,
+              219,
+              148,
+              159,
+              352,
+              278
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "youtube:subscribers_gained": {
+          "values": 48,
+          "trend": {
+            "data": [
+              0,
+              0,
+              3,
+              1,
+              3,
+              2,
+              1,
+              0,
+              0,
+              3,
+              3,
+              1,
+              3,
+              0,
+              0,
+              3,
+              0,
+              3,
+              3,
+              1,
+              0,
+              2,
+              1,
+              4,
+              2,
+              1,
+              1,
+              5,
+              2
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "youtube:subscribers_lost": {
+          "values": 15,
+          "trend": {
+            "data": [
+              1,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              2,
+              0,
+              1,
+              0,
+              1,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "youtube:subscribers_variation": {
+          "values": 33,
+          "comparison": {
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "youtube:average_view_duration": {
+          "values": 28,
+          "trend": {
+            "data": []
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        },
+        "youtube:average_view_percentage": {
+          "values": 53.59,
+          "trend": {
+            "data": []
+          },
+          "comparison": {
+            "values": null,
+            "difference": null,
+            "absoluteDifference": null
+          }
+        }
+      },
+      "error": null
+    }
+  ]
+}
